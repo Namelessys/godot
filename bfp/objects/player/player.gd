@@ -1,31 +1,35 @@
 extends RigidBody2D
 
 @onready var animation = $AnimatedSprite2D
+@onready var groundCast = $GroundCast
 
 const SPEED = 400.0
 const ACCELERATION = 2000
 const JUMP_FORCE = -400.0
-const BREAK_FOCE_VELOCITY_THRESHOLD = 30
+const BREAK_FOCE_VELOCITY_THRESHOLD = 10
+const SLEEP_SPEED_THRESHOLD = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func is_on_floor(): #ToDo: 
-	return true
+func isOnFloor(): #ToDo: 
+	return groundCast.is_colliding()
 
 func _ready():
 	animation.play("idle")
 	pass
 	
-func  _integrate_forces(state):
+func  _physics_process(delta):
 	var velocity = linear_velocity
-
-	if Input.is_action_just_pressed("ui_up"):
+	var gotInput = false
+	
+	if Input.is_action_just_pressed("ui_up") and isOnFloor():
+		gotInput = true
 		apply_central_impulse(Vector2(0, JUMP_FORCE))
-		pass
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
+		gotInput = true
 		var acceleration = ACCELERATION
 		if direction < 0 and velocity.x > 0 \
 		or direction > 0 and velocity.x < 0:
@@ -36,13 +40,11 @@ func  _integrate_forces(state):
 	else:
 		var moveDirection = clamp(1 * velocity.x * 100, -1, 1)
 		
-		print(velocity.x)
-		print(state.linear_velocity.x)
-		
 		if abs(velocity.x) > BREAK_FOCE_VELOCITY_THRESHOLD:
 			apply_central_force(Vector2(-moveDirection * ACCELERATION, 0))
-		else:
-			state.linear_velocity = Vector2(0, state.linear_velocity.y)
+	
+	if abs(velocity.x) < SLEEP_SPEED_THRESHOLD and abs(velocity.y) < SLEEP_SPEED_THRESHOLD and isOnFloor() and not gotInput:
+			sleeping = true
 	
 		
 func _process(delta):
@@ -58,12 +60,12 @@ func _process(delta):
 		var targetScale = clamp(1 * animation.scale.x * 100, -1, 1)
 		animation.scale.x = move_toward(animation.scale.x, targetScale, 20 * delta)
 	
-	if not is_on_floor():
+	if not isOnFloor():
 		if velocity.y < 0:
 			animation.play("jump")
 		elif velocity.y > 0:
 			animation.play("fall")
-	elif velocity.x == 0:
+	elif abs(velocity.x) < BREAK_FOCE_VELOCITY_THRESHOLD:
 		animation.play("idle")
 	
 	
