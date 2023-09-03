@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dih1nwqwxxksg"]
+
+[ext_resource type="Script" path="res://game/scripts/equipped_weapon.gd" id="1_plevk"]
+[ext_resource type="Script" path="res://game/scripts/weapons/weapon_background.gd" id="2_ctu6y"]
+[ext_resource type="Texture2D" uid="uid://du8wsgedehhy8" path="res://game/assets/BFP/weapon/base.png" id="3_51kn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ptvy"]
+size = Vector2(16, 8)
+
+[node name="EquippedWeaponBase" type="Node2D"]
+script = ExtResource("1_plevk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -44.0
+offset_top = -38.0
+offset_right = 48.0
+offset_bottom = 39.0
+color = Color(0.109804, 0.0941176, 0.658824, 1)
+script = ExtResource("2_ctu6y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, -1)
+texture = ExtResource("3_51kn3")
+
+[node name="CollisionShapes" type="Node" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShapes"]
+position = Vector2(6, -2)
+shape = SubResource("RectangleShape2D_1ptvy")

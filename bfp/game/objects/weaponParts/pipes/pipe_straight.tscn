@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b84okkg361uk7"]
+
+[ext_resource type="Script" path="res://game/scripts/weapons/weapon_empty.gd" id="1_fcl4s"]
+[ext_resource type="Texture2D" uid="uid://cj5lcgcib561g" path="res://game/assets/BFP/weapon/pipes/straight.png" id="2_bntdv"]
+[ext_resource type="PackedScene" uid="uid://bt3nsqsl2phw4" path="res://game/objects/common/weapon_connector_input.tscn" id="3_asx6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1soan"]
+size = Vector2(8, 6.5)
+
+[node name="WP_PipeStraight" type="Node2D"]
+script = ExtResource("1_fcl4s")
+
+[node name="Straight" type="Sprite2D" parent="."]
+texture = ExtResource("2_bntdv")
+
+[node name="ConnectorInput" parent="." instance=ExtResource("3_asx6j")]
+position = Vector2(-5, 0)
+
+[node name="DraggingArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea"]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_1soan")

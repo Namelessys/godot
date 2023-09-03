@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt8bjknh5s3tp"]
+
+[ext_resource type="Texture2D" uid="uid://d2r5onwckaq2l" path="res://game/assets/BFP/weapon/pipes/curve.png" id="1_epgg8"]
+
+[node name="PipeCurve" type="Node2D"]
+
+[node name="Curve" type="Sprite2D" parent="."]
+texture = ExtResource("1_epgg8")
