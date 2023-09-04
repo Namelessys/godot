@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b84okkg361uk7" path="res://game/objects/weaponParts/pipes/pipe_straight.tscn" id="1_sb7tj"]
 
 [node name="TestWeaponEditor" type="Node2D"]
+process_priority = 10
 script = ExtResource("1_56wmo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -15,3 +16,11 @@ position = Vector2(11, 6)
 
 [node name="WP_PipeStraight2" parent="." instance=ExtResource("1_sb7tj")]
 position = Vector2(11, 17)
+
+[node name="WP_PipeStraight3" parent="." instance=ExtResource("1_sb7tj")]
+position = Vector2(43, 7)
+rotation = 1.5708
+
+[node name="WP_PipeStraight4" parent="." instance=ExtResource("1_sb7tj")]
+position = Vector2(36, 27)
+rotation = 3.14159

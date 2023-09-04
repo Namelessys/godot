@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7wgy5qv4mv6q"]
+
+[ext_resource type="Script" path="res://game/scripts/main.gd" id="1_pboe2"]
+[ext_resource type="Script" path="res://gdScriptRef/gdScriptRef.gd" id="2_fvmy2"]
+[ext_resource type="Script" path="res://game/scripts/textBox.gd" id="3_5pf5g"]
+[ext_resource type="Script" path="res://game/scripts/button.gd" id="4_qnve3"]
+
+[node name="main" type="Node2D"]
+position = Vector2(0, 2)
+script = ExtResource("1_pboe2")
+
+[node name="GDScriptRef" type="Node" parent="."]
+script = ExtResource("2_fvmy2")
+
+[node name="TheButtonGame" type="CanvasLayer" parent="."]
+
+[node name="VSplitContainer" type="VSplitContainer" parent="TheButtonGame"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.5
+offset_top = -199.5
+offset_right = 178.5
+offset_bottom = 199.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+split_offset = 333
+dragger_visibility = 1
+
+[node name="TextBoxContainer" type="PanelContainer" parent="TheButtonGame/VSplitContainer"]
+self_modulate = Color(0.85098, 0, 1, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="TheButtonGame/VSplitContainer/TextBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TheButtonGame/VSplitContainer/TextBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="TextBox" type="Label" parent="TheButtonGame/VSplitContainer/TextBoxContainer/MarginContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("3_5pf5g")
+
+[node name="MarginContainer" type="MarginContainer" parent="TheButtonGame/VSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="ButtonContainer" type="PanelContainer" parent="TheButtonGame/VSplitContainer/MarginContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TheButtonGame/VSplitContainer/MarginContainer/ButtonContainer"]
+layout_mode = 2
+text = "A Button"
+script = ExtResource("4_qnve3")
+
+[node name="Overlay" type="ColorRect" parent="TheButtonGame/VSplitContainer/MarginContainer/ButtonContainer/Button"]
+self_modulate = Color(0, 0, 0, 0.803922)
+layout_mode = 2
+offset_right = 157.0
+offset_bottom = 54.0
+mouse_filter = 2
+
+[connection signal="next_msg" from="TheButtonGame/VSplitContainer/MarginContainer/ButtonContainer/Button" to="TheButtonGame/VSplitContainer/TextBoxContainer/MarginContainer/TextBox" method="_on_button_next_msg"]
+[connection signal="pressed" from="TheButtonGame/VSplitContainer/MarginContainer/ButtonContainer/Button" to="TheButtonGame/VSplitContainer/MarginContainer/ButtonContainer/Button" method="_on_pressed"]

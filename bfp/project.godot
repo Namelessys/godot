@@ -15,6 +15,10 @@ run/main_scene="res://game/sceens/test_weapon_editor.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+WeaponEditor="*res://game/scripts/singletons/weapon_editor.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/runbash/plugin.cfg")

@@ -1,0 +1,5 @@
+extends Node
+
+var b_dragging_part = false
+
+enum {CONNECTOR_NOT_CONNECTED, CONNECTOR_CONNECTED, CONNECTOR_INVALID_CONNECTION}
