@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt8bjknh5s3tp"]
+[gd_scene load_steps=6 format=3 uid="uid://bt8bjknh5s3tp"]
 
 [ext_resource type="Texture2D" uid="uid://d2r5onwckaq2l" path="res://game/assets/BFP/weapon/pipes/curve.png" id="1_epgg8"]
+[ext_resource type="Script" path="res://game/scripts/weapons/weapon_empty.gd" id="1_sb0eu"]
+[ext_resource type="PackedScene" uid="uid://bt3nsqsl2phw4" path="res://game/objects/common/weapon_connector_input.tscn" id="2_jcuk4"]
+[ext_resource type="PackedScene" uid="uid://bc6ubvbnihhw1" path="res://game/objects/common/weapon_connector_output.tscn" id="3_n7eie"]
 
-[node name="PipeCurve" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnpf2"]
+size = Vector2(6, 7)
+
+[node name="WP_PipeCurve" type="Node2D"]
+script = ExtResource("1_sb0eu")
 
 [node name="Curve" type="Sprite2D" parent="."]
 texture = ExtResource("1_epgg8")
+
+[node name="ConnectorInput" parent="." instance=ExtResource("2_jcuk4")]
+position = Vector2(-5, 0)
+
+[node name="ConnectorOutput" parent="." instance=ExtResource("3_n7eie")]
+position = Vector2(0, 5)
+rotation = 1.5708
+
+[node name="DraggingArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_cnpf2")

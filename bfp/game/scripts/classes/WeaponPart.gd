@@ -4,6 +4,7 @@ class_name WeaponPart
 
 var b_dragging = false
 var v2_org_position
+var o_overlapping_connector
 #var a_connector_inputs
 
 @onready var o_own_dragging_area = $DraggingArea
@@ -18,7 +19,6 @@ func is_in_valid_position():
 	for _own_connector in a_own_connectors:
 		if _own_connector.get_connection_state() == WeaponEditor.CONNECTOR_INVALID_CONNECTION:
 			return false
-		pass
 		
 	return true
 
@@ -32,25 +32,24 @@ func drop_part():
 		position = v2_org_position
 		return false
 	return true
-		
+	
+func process_dragging():
+	for _own_connector in a_own_connectors:
+		o_overlapping_connector = _own_connector.get_overlapping_connector()
+		if o_overlapping_connector:
+			global_translate(o_overlapping_connector.get_global_position() - _own_connector.get_global_position())
+			o_overlapping_connector = null
+			return
+		o_overlapping_connector = null
+
 func _init():
 	pass
 	#parent_node = object_node
 	
 func process(_delta):
 	if b_dragging:
-		for _own_connector in a_own_connectors:
-			var _connector = _own_connector.get_overlapping_connector()
-			if _connector:
-				#set_position(_connector.get_global_position() - _own_connector.get_position())
-				
-				set_position(_connector.get_global_position())
-				global_translate(-_own_connector.get_position())
-				
-				return
-		
+		process_dragging()
 	
-	pass
 
 func physics_process(_delta):
 	if b_dragging:

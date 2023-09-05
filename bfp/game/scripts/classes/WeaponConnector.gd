@@ -3,15 +3,13 @@ extends Node2D
 class_name WeaponConnector
 
 @onready var b_is_input_connector = (true if get_name().find("ConnectorInput") == 0 else false)
-@onready var singleton_weapon_editor = get_node("/root/WeaponEditor")
+@onready var o_own_connection_area = $ConnectionArea
 
-var o_own_connection_area
 var o_current_overlapping_connector # gets updated when get_overlapping_connector is called
 
 var d_areas = {}
 var o_area
 var b_draw_clear_needed = true
-
 
 func get_overlapping_connector():
 	if o_own_connection_area.has_overlapping_areas():
@@ -32,7 +30,6 @@ func get_connection_state():
 	else:
 		return WeaponEditor.CONNECTOR_INVALID_CONNECTION
 	
-
 func is_valid():
 	pass
 
@@ -40,10 +37,10 @@ func _init():
 	pass
 	
 func ready():
-	o_own_connection_area = $ConnectionArea
+	pass
 	
 func process(_delta):
-	if singleton_weapon_editor.b_dragging_part:
+	if WeaponEditor.b_dragging_part:
 		b_draw_clear_needed = true
 		queue_redraw()
 	elif b_draw_clear_needed:
@@ -52,7 +49,7 @@ func process(_delta):
 	pass
 	
 func draw():
-	if singleton_weapon_editor.b_dragging_part:
+	if WeaponEditor.b_dragging_part:
 		match get_connection_state():
 			WeaponEditor.CONNECTOR_NOT_CONNECTED:
 				if b_is_input_connector:
