@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://lolmmu0lpwk1"]
+
+[ext_resource type="Script" path="res://game/scripts/scenes/weapon_editor.gd" id="1_0cbdu"]
+[ext_resource type="PackedScene" uid="uid://b84okkg361uk7" path="res://game/objects/weaponParts/pipes/WP_pipe_straight.tscn" id="2_8ya83"]
+[ext_resource type="PackedScene" uid="uid://bt8bjknh5s3tp" path="res://game/objects/weaponParts/pipes/WP_pipe_curve.tscn" id="3_rtxor"]
+[ext_resource type="PackedScene" uid="uid://cjnqms5y7was4" path="res://game/objects/weaponParts/WP_base.tscn" id="4_w6lc3"]
+
+[node name="TestWeaponEditor" type="Node2D"]
+process_priority = 10
+script = ExtResource("1_0cbdu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(16, 7)
+zoom = Vector2(9.3, 9.3)
+
+[node name="WP_PipeStraight" parent="." instance=ExtResource("2_8ya83")]
+position = Vector2(23, 30)
+
+[node name="WP_PipeStraight2" parent="." instance=ExtResource("2_8ya83")]
+position = Vector2(23, 20)
+
+[node name="WP_PipeCurve" parent="." instance=ExtResource("3_rtxor")]
+position = Vector2(29, 6)
+
+[node name="WP_PipeCurve2" parent="." instance=ExtResource("3_rtxor")]
+position = Vector2(22, -8)
+
+[node name="WP_Base" parent="." instance=ExtResource("4_w6lc3")]
+position = Vector2(7, 6)

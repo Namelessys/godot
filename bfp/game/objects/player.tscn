@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cdeb77bp72i83"]
+[gd_scene load_steps=27 format=3 uid="uid://cdeb77bp72i83"]
 
 [ext_resource type="Script" path="res://game/scripts/player/player.gd" id="1_7f41l"]
 [ext_resource type="Texture2D" uid="uid://dwog6e4eo73u6" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/jump/player-jump-2.png" id="2_0rjbx"]

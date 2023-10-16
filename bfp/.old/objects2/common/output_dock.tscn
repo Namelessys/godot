@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dbarkf7i42exs"]
+
+[node name="OutputDock" type="Node2D"]
