@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cdeb77bp72i83"]
+[gd_scene load_steps=26 format=3 uid="uid://cdeb77bp72i83"]
 
 [ext_resource type="Script" path="res://game/scripts/player/player.gd" id="1_7f41l"]
 [ext_resource type="Texture2D" uid="uid://dwog6e4eo73u6" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/jump/player-jump-2.png" id="2_0rjbx"]
@@ -14,14 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://duui4ao8k46mo" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-5.png" id="12_o0omg"]
 [ext_resource type="Texture2D" uid="uid://claaso4jsfcna" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-6.png" id="13_ytlal"]
 [ext_resource type="Texture2D" uid="uid://dh2ttv7rxy75l" path="res://game/assets/Sunny-land-assets-files/PNG/spritesheets/payer-run.png" id="14_7x14q"]
-[ext_resource type="Script" path="res://test.gd" id="15_cpfdy"]
 [ext_resource type="Script" path="res://game/scripts/common/camera.gd" id="16_suw1g"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0gf7f"]
-friction = 0.05
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3eum"]
-height = 22.0
+[ext_resource type="Script" path="res://game/scripts/player/animator.gd" id="17_bg33s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxtx1"]
 atlas = ExtResource("14_7x14q")
@@ -129,29 +123,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3eum"]
+height = 22.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3gyj"]
 size = Vector2(6, 20)
 
-[node name="RigidBody2D" type="RigidBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_0gf7f")
-continuous_cd = 2
-can_sleep = false
-lock_rotation = true
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_7f41l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_j3eum")
+[node name="Animator" type="Node" parent="."]
+script = ExtResource("17_bg33s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -5)
 sprite_frames = SubResource("SpriteFrames_gb6hl")
 animation = &"idle"
 
-[node name="Node" type="Node" parent="."]
-script = ExtResource("15_cpfdy")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_j3eum")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.835, 1.835)
+zoom = Vector2(4.46, 4.46)
 position_smoothing_speed = -5.0
 script = ExtResource("16_suw1g")
 
@@ -164,5 +157,3 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponConnector"]
 position = Vector2(11, 0)
 shape = SubResource("RectangleShape2D_m3gyj")
-
-[connection signal="area_entered" from="WeaponConnector" to="." method="_on_weapon_connector_area_entered"]

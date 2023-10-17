@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://qbu3hqkpkauw"]
+[gd_scene load_steps=7 format=3 uid="uid://qbu3hqkpkauw"]
 
 [ext_resource type="Script" path="res://game/scripts/scenes/world.gd" id="1_6gjp5"]
 [ext_resource type="PackedScene" uid="uid://cdeb77bp72i83" path="res://game/objects/player.tscn" id="2_qyx8i"]
 [ext_resource type="Texture2D" uid="uid://b1hjwfykioam3" path="res://game/assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="3_x6lkp"]
+[ext_resource type="PackedScene" uid="uid://cbpx8lfr3dieh" path="res://game/objects/test/ball.tscn" id="4_qsku7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxpgo"]
 texture = ExtResource("3_x6lkp")
@@ -10,7 +11,7 @@ texture = ExtResource("3_x6lkp")
 5:0/0 = 0
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 12, 16, -4, 16, 16, -16, 16)
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 12, 14, -4, 16, -4, 16, 16, -16, 16)
 7:0/size_in_atlas = Vector2i(2, 2)
 7:0/0 = 0
 7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -20,7 +21,13 @@ texture = ExtResource("3_x6lkp")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -4, 40, -4, 40, 16, -40, 16)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-34, -4, 34, -4, 40, 0, 40, 16, -40, 16, -40, 0)
+1:18/0 = 0
+1:18/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:18/0/physics_layer_0/angular_velocity = 0.0
+2:18/0 = 0
+2:18/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:18/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_yudeb"]
 physics_layer_0/collision_layer = 1
@@ -34,10 +41,13 @@ position = Vector2(185, 173)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(1, 0)
-zoom = Vector2(2.61, 2.61)
+zoom = Vector2(6.285, 6.285)
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2(32, 72)
 tile_set = SubResource("TileSet_yudeb")
 format = 2
 layer_0/tile_data = PackedInt32Array(458773, 327680, 0, 393239, 327680, 0, 327705, 327680, 0, 327708, 0, 0, 327712, 0, 0, 327716, 0, 0, 524306, 0, 0, 524302, 0, 0, 524298, 0, 0, 524294, 0, 0, 524290, 0, 0, 327720, 0, 0, 327724, 0, 0, 327728, 0, 0, 327732, 0, 0, 327736, 0, 0, 327740, 0, 0, 327744, 0, 0)
+
+[node name="Ball" parent="." instance=ExtResource("4_qsku7")]
+position = Vector2(232, 142)

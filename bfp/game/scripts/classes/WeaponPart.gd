@@ -42,10 +42,21 @@ func process_dragging():
 			return
 		o_overlapping_connector = null
 
-func _init():
-	pass
-	#parent_node = object_node
+func get_connected_parts():
+	var connected_parts = []
 	
+	for connector_output in find_children("ConnectorOutput*"):
+		print(connector_output.find_child("ConnectionArea").get_overlapping_areas())
+		
+	
+	return connected_parts
+	
+	
+
+func build():
+	for t in get_connected_parts():
+		print(t)
+
 func process(_delta):
 	if b_dragging:
 		process_dragging()

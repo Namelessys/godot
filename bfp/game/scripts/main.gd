@@ -5,7 +5,7 @@ extends Main
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	editor = load("res://game/scenes/test_weapon_editor.tscn").instantiate()
+	editor = load("res://game/scenes/weapon_editor.tscn").instantiate()
 	world = load("res://game/scenes/test_world_1.tscn").instantiate()
 	
 	#add_child(editor)
