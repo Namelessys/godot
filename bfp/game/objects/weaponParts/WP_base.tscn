@@ -11,12 +11,14 @@ size = Vector2(13, 7.5)
 script = ExtResource("1_1u33i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, -1)
 texture = ExtResource("1_jnfsf")
 
 [node name="ConnectorOutput" parent="." instance=ExtResource("2_hkimt")]
-position = Vector2(8, 0)
+position = Vector2(14, -1)
 
 [node name="DraggingArea" type="Area2D" parent="."]
+position = Vector2(6, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea"]
 position = Vector2(0.5, -0.25)

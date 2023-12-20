@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var arm_offset : Vector2 = Vector2(0, 0)
+
 #@onready var animation = $AnimatedSprite2D
 @onready var animator = $Animator
 

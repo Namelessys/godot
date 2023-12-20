@@ -8,6 +8,7 @@ signal editor_exited
 enum GAME_STATE {WORLD, EDITOR}
 
 static var game_state = GAME_STATE.WORLD
+static var game_world = null
 
 func change_game_state(state):
 	game_state = state
