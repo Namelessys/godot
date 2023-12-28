@@ -1,0 +1,268 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7u6earxjamkc"]
+
+[ext_resource type="Script" path="res://scripts/unit_human_01.gd" id="1_8ea3y"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/HealthBar.tscn" id="2_qpsua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yg70k"]
+size = Vector2(40, 56)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kvulg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci7o8"]
+size = Vector2(7, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyrp8"]
+size = Vector2(7, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhpvk"]
+size = Vector2(7, 32)
+
+[node name="Unit_Human" type="Node2D"]
+script = ExtResource("1_8ea3y")
+damage = 10.0
+
+[node name="Head" type="RigidBody2D" parent="."]
+position = Vector2(17, 7)
+collision_layer = 256
+collision_mask = 0
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Head"]
+position = Vector2(1, 13)
+node_a = NodePath("../../Body")
+node_b = NodePath("..")
+length = 1.0
+stiffness = 64.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_eekku")
+
+[node name="ColorRect" type="ColorRect" parent="Head"]
+offset_left = -10.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 12.0
+color = Color(0.462745, 0.670588, 0.87451, 1)
+
+[node name="Body" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="HealthBar" parent="Body" instance=ExtResource("2_qpsua")]
+position = Vector2(-4, -25)
+
+[node name="Left_EnemyDetector" type="RayCast2D" parent="Body"]
+position = Vector2(7, 68)
+rotation = 1.5708
+target_position = Vector2(-3.8147e-06, 29)
+collision_mask = 256
+
+[node name="Right_EnemyDetector" type="RayCast2D" parent="Body"]
+position = Vector2(32, 68)
+rotation = -1.5708
+target_position = Vector2(-3.8147e-06, 29)
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(20, 67)
+shape = SubResource("RectangleShape2D_yg70k")
+
+[node name="ColorRect" type="ColorRect" parent="Body"]
+offset_top = 39.0
+offset_right = 40.0
+offset_bottom = 95.0
+color = Color(0.415686, 0.372549, 1, 1)
+
+[node name="Arm1" type="RigidBody2D" parent="Body"]
+position = Vector2(37, 49)
+rotation = -1.5708
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_kvulg")
+gravity_scale = 2.874
+
+[node name="Arm1_joint" type="PinJoint2D" parent="Body/Arm1"]
+position = Vector2(1, 1)
+rotation = 1.5708
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Arm1"]
+position = Vector2(1, 13)
+shape = SubResource("RectangleShape2D_ci7o8")
+
+[node name="ColorRect" type="ColorRect" parent="Body/Arm1"]
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 4.0
+offset_bottom = 29.0
+color = Color(0.321569, 0, 0.976471, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LowerArm1" type="RigidBody2D" parent="Body/Arm1"]
+position = Vector2(-1.43051e-06, 29)
+collision_layer = 0
+collision_mask = 256
+physics_material_override = SubResource("PhysicsMaterial_kvulg")
+gravity_scale = 2.874
+max_contacts_reported = 1024
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Arm1/LowerArm1"]
+position = Vector2(1, 14)
+shape = SubResource("RectangleShape2D_wyrp8")
+
+[node name="ColorRect" type="ColorRect" parent="Body/Arm1/LowerArm1"]
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 4.0
+offset_bottom = 30.0
+color = Color(0.356863, 0.223529, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Body/Arm1/LowerArm1"]
+position = Vector2(3.8147e-06, 0)
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="Arm2" type="RigidBody2D" parent="Body"]
+position = Vector2(3, 49)
+rotation = 1.5708
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_kvulg")
+gravity_scale = 2.874
+
+[node name="Arm2_joint" type="PinJoint2D" parent="Body/Arm2"]
+position = Vector2(1.58933e-08, 1)
+rotation = 3.14159
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Arm2"]
+position = Vector2(2.54312e-07, 14)
+shape = SubResource("RectangleShape2D_ci7o8")
+
+[node name="ColorRect" type="ColorRect" parent="Body/Arm2"]
+offset_left = -4.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 30.0
+color = Color(0.321569, 0, 0.976471, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LowerArm2" type="RigidBody2D" parent="Body/Arm2"]
+position = Vector2(4.9273e-07, 30)
+collision_layer = 0
+collision_mask = 256
+physics_material_override = SubResource("PhysicsMaterial_kvulg")
+gravity_scale = 2.874
+max_contacts_reported = 1024
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Arm2/LowerArm2"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_wyrp8")
+
+[node name="ColorRect" type="ColorRect" parent="Body/Arm2/LowerArm2"]
+offset_left = -4.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 30.0
+color = Color(0.356863, 0.223529, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Body/Arm2/LowerArm2"]
+position = Vector2(-1, 0)
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="Leg1" type="RigidBody2D" parent="Body"]
+position = Vector2(7, 93)
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_kvulg")
+gravity_scale = 2.874
+
+[node name="Leg1_joint" type="PinJoint2D" parent="Body/Leg1"]
+position = Vector2(25, 1)
+node_a = NodePath("../..")
+node_b = NodePath("../../Leg2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Leg1"]
+position = Vector2(1, 14)
+shape = SubResource("RectangleShape2D_ci7o8")
+
+[node name="ColorRect" type="ColorRect" parent="Body/Leg1"]
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 4.0
+offset_bottom = 30.0
+color = Color(0.321569, 0, 0.976471, 1)
+
+[node name="LowerLeg1" type="RigidBody2D" parent="Body/Leg1"]
+position = Vector2(-3, 27)
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_kvulg")
+gravity_scale = 2.874
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Leg1/LowerLeg1"]
+position = Vector2(4, 16)
+shape = SubResource("RectangleShape2D_wyrp8")
+
+[node name="ColorRect" type="ColorRect" parent="Body/Leg1/LowerLeg1"]
+offset_right = 7.0
+offset_bottom = 32.0
+color = Color(0.356863, 0.223529, 1, 1)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Body/Leg1/LowerLeg1"]
+position = Vector2(3, 3)
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="Leg2" type="RigidBody2D" parent="Body"]
+position = Vector2(32, 93)
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_kvulg")
+gravity_scale = 2.874
+
+[node name="Leg2_joint" type="PinJoint2D" parent="Body/Leg2"]
+position = Vector2(-25, 1)
+node_a = NodePath("../..")
+node_b = NodePath("../../Leg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Leg2"]
+position = Vector2(1, 14)
+shape = SubResource("RectangleShape2D_xhpvk")
+
+[node name="ColorRect" type="ColorRect" parent="Body/Leg2"]
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 4.0
+offset_bottom = 30.0
+color = Color(0.321569, 0, 0.976471, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LowerLeg2" type="RigidBody2D" parent="Body/Leg2"]
+position = Vector2(-3, 27)
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_kvulg")
+gravity_scale = 2.874
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Leg2/LowerLeg2"]
+position = Vector2(4, 16)
+shape = SubResource("RectangleShape2D_xhpvk")
+
+[node name="ColorRect" type="ColorRect" parent="Body/Leg2/LowerLeg2"]
+offset_right = 7.0
+offset_bottom = 32.0
+color = Color(0.356863, 0.223529, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Body/Leg2/LowerLeg2"]
+position = Vector2(3, 3)
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(18, 67)
+zoom = Vector2(0.675, 0.675)

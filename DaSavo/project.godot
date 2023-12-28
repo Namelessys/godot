@@ -14,7 +14,22 @@ config/name="DaSavo"
 run/main_scene="res://scenes/testWorld.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+config/layer_1=""
+config/layer_9=""
+config/layer_11=""
+config/layer_10="Weapon"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/runbash/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_9="weapon"
+2d_physics/layer_10="weapon_player"
+2d_physics/layer_11="weapon_enemy"

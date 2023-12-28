@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8ps4rqmk0aai"]
+
+[ext_resource type="Script" path="res://objects/hud/spawnUnit.gd" id="1_rwi76"]
+[ext_resource type="PackedScene" uid="uid://c7u6earxjamkc" path="res://objects/Unit_Human.tscn" id="1_xxpf1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q4ekc"]
+viewport_path = NodePath("Control/MarginContainer/HBoxContainer/Button/SubViewport")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("ViewportTexture_q4ekc")
+script = ExtResource("1_rwi76")
+
+[node name="SubViewport" type="SubViewport" parent="Control/MarginContainer/HBoxContainer/Button"]
+handle_input_locally = false
+size = Vector2i(150, 150)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Unit_Human01" parent="Control/MarginContainer/HBoxContainer/Button/SubViewport" instance=ExtResource("1_xxpf1")]
+process_mode = 4
+
+[connection signal="button_up" from="Control/MarginContainer/HBoxContainer/Button" to="Control/MarginContainer/HBoxContainer/Button" method="_on_button_up"]
