@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7u6earxjamkc"]
+[gd_scene load_steps=9 format=3 uid="uid://cyxwp4pku28x4"]
 
-[ext_resource type="Script" path="res://scripts/unit_human_01.gd" id="1_8ea3y"]
-[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/HealthBar.tscn" id="2_qpsua"]
+[ext_resource type="Script" path="res://scripts/unit_human_01.gd" id="1_hpj3b"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/HealthBar.tscn" id="2_bp3ed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
 
@@ -19,8 +19,8 @@ size = Vector2(7, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhpvk"]
 size = Vector2(7, 32)
 
-[node name="Unit_Human" type="Node2D"]
-script = ExtResource("1_8ea3y")
+[node name="Unit_Speedo" type="Node2D"]
+script = ExtResource("1_hpj3b")
 damage = 10.0
 
 [node name="Head" type="RigidBody2D" parent="."]
@@ -44,13 +44,13 @@ offset_left = -10.0
 offset_top = -11.0
 offset_right = 11.0
 offset_bottom = 12.0
-color = Color(0.462745, 0.670588, 0.87451, 1)
+color = Color(0.976471, 0.337255, 0.933333, 1)
 
 [node name="Body" type="StaticBody2D" parent="."]
 collision_layer = 256
 collision_mask = 0
 
-[node name="HealthBar" parent="Body" instance=ExtResource("2_qpsua")]
+[node name="HealthBar" parent="Body" instance=ExtResource("2_bp3ed")]
 position = Vector2(-4, -25)
 
 [node name="Left_EnemyDetector" type="RayCast2D" parent="Body"]

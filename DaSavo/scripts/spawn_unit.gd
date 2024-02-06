@@ -1,6 +1,6 @@
 extends Button
 
-const UNIT = preload("res://objects/Unit_Human.tscn")
+@export var UNIT : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +11,12 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_button_up():
+func _on_button_up(enemy):
 	var unit = UNIT.instantiate()
-	var unit2 = UNIT.instantiate()
-	unit.position = Vector2(88, 88)
-	unit2.position = Vector2(546, 88)
-	unit2.is_enemy = true
+	if not enemy:
+		unit.position = Vector2(88, 88)
+	else:
+		unit.position = Vector2(546, 88)
+		unit.is_enemy = true
+		
 	get_tree().root.add_child(unit, true)
-	get_tree().root.add_child(unit2, true)

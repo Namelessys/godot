@@ -19,6 +19,10 @@ config/layer_9=""
 config/layer_11=""
 config/layer_10="Weapon"
 
+[autoload]
+
+GameInterface="*res://scripts/GameInterface.gd"
+
 [display]
 
 window/stretch/mode="viewport"

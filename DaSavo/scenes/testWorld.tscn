@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bsjrvucod13d4"]
 
-[ext_resource type="PackedScene" uid="uid://bo1x5dvivm04h" path="res://objects/Unit_Dummy.tscn" id="1_7cyfj"]
-[ext_resource type="PackedScene" uid="uid://c7u6earxjamkc" path="res://objects/Unit_Human.tscn" id="2_6l16t"]
+[ext_resource type="PackedScene" uid="uid://bo1x5dvivm04h" path="res://objects/PlayerUnits/Unit_Dummy.tscn" id="1_7cyfj"]
+[ext_resource type="PackedScene" uid="uid://c7u6earxjamkc" path="res://objects/PlayerUnits/Unit_Human.tscn" id="2_6l16t"]
 [ext_resource type="PackedScene" uid="uid://b8ps4rqmk0aai" path="res://objects/hud/UnitsMenu.tscn" id="3_d0ynm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jqy12"]
@@ -22,20 +22,6 @@ physics_material_override = SubResource("PhysicsMaterial_jqy12")
 position = Vector2(575, 311)
 shape = SubResource("RectangleShape2D_eh7kv")
 
-[node name="Unit_Human01" parent="." instance=ExtResource("2_6l16t")]
-position = Vector2(88, 88)
-
-[node name="Unit_Dummy" parent="." instance=ExtResource("1_7cyfj")]
-position = Vector2(217, 100)
-is_enemy = true
-
-[node name="Unit_Dummy01" parent="." instance=ExtResource("1_7cyfj")]
-position = Vector2(439, 98)
-
-[node name="Unit_Human02" parent="." instance=ExtResource("2_6l16t")]
-position = Vector2(546, 88)
-is_enemy = true
-
 [node name="UnitsMenu" parent="." instance=ExtResource("3_d0ynm")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -43,3 +29,23 @@ offset_left = -1.0
 offset_top = 235.0
 offset_right = 1147.0
 offset_bottom = 388.0
+
+[node name="DefaultUnits" type="Node" parent="."]
+
+[node name="Unit_Human01" parent="DefaultUnits" instance=ExtResource("2_6l16t")]
+position = Vector2(88, 88)
+
+[node name="Unit_Dummy" parent="DefaultUnits" instance=ExtResource("1_7cyfj")]
+position = Vector2(217, 100)
+is_enemy = true
+
+[node name="Unit_Dummy01" parent="DefaultUnits" instance=ExtResource("1_7cyfj")]
+position = Vector2(439, 98)
+
+[node name="Unit_Human02" parent="DefaultUnits" instance=ExtResource("2_6l16t")]
+position = Vector2(546, 88)
+is_enemy = true
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Game" type="Node" parent="."]

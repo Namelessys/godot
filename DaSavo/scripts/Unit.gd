@@ -63,9 +63,9 @@ func physics_process(_delta):
 				is_walking = true
 				is_attacking = false
 
-func hit(damage):
+func hit(hit_damage):
 	#print(health, " ", damage)
-	health -= damage
+	health -= hit_damage
 
 func die():
 	self.queue_free()
