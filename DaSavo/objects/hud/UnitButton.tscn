@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://biifvqbdgjk6n"]
+[gd_scene load_steps=6 format=3 uid="uid://biifvqbdgjk6n"]
 
 [ext_resource type="Script" path="res://scripts/unit_button.gd" id="1_d1hdy"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ylev5"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj1rb"]
+bg_color = Color(0, 0, 0, 0.454902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnwtb"]
+bg_color = Color(0.345098, 0.345098, 0.345098, 0.454902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sup6"]
+bg_color = Color(0.443137, 0, 0, 1)
 
 [node name="UnitButton" type="PanelContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -13,12 +22,6 @@ script = ExtResource("1_d1hdy")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(1024, 1024)
-
-[node name="Node2D" type="Node2D" parent="SubViewport"]
-
-[node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
@@ -36,5 +39,10 @@ expand_mode = 1
 [node name="Button" type="Button" parent="."]
 z_index = -1
 layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dj1rb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gnwtb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2sup6")
 
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

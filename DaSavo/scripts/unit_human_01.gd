@@ -22,6 +22,27 @@ extends Unit
 @export var arm_torque = 90000
 @export var lower_arm_torque = 90000
 
+func apply_body_torque(delta):
+	if is_walking:
+		leg1.apply_torque(leg_torque * torque_factor)
+		lower_leg1.apply_torque(lower_leg_torque * torque_factor)
+		leg2.apply_torque(leg_torque * torque_factor)
+		lower_leg2.apply_torque(lower_leg_torque * torque_factor)
+	
+	if is_attacking:
+		arm1.apply_torque(arm_torque * torque_factor)
+		lower_arm1.apply_torque(lower_arm_torque * torque_factor)
+		arm2.apply_torque(arm_torque * torque_factor)
+		lower_arm2.apply_torque(lower_arm_torque * torque_factor)
+
+func spawn_wiggle():
+	is_attacking = true
+	is_walking = true
+	torque_factor = 30
+	apply_body_torque(1)
+	torque_factor = 0
+	
+
 func _ready():
 	ready()
 	head.lock_rotation = true
@@ -39,22 +60,10 @@ func _process(delta):
 	
 func _physics_process(delta):
 	physics_process(delta)
-	
+	apply_body_torque(delta)
 	if is_walking:
 		pos_x += walk_speed * speed_factor
-		leg1.apply_torque(leg_torque * torque_factor)
-		lower_leg1.apply_torque(lower_leg_torque * torque_factor)
-		leg2.apply_torque(leg_torque * torque_factor)
-		lower_leg2.apply_torque(lower_leg_torque * torque_factor)
-	
-	if is_attacking:
-		arm1.apply_torque(arm_torque * torque_factor)
-		lower_arm1.apply_torque(lower_arm_torque * torque_factor)
-		arm2.apply_torque(arm_torque * torque_factor)
-		lower_arm2.apply_torque(lower_arm_torque * torque_factor)
-		
 	body.position = Vector2(pos_x, pos_y)
-	
 	if health <= 0:
 		die()
 
