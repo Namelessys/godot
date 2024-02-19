@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cyxwp4pku28x4"]
 
 [ext_resource type="Script" path="res://scripts/unit_human_01.gd" id="1_hpj3b"]
-[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/HealthBar.tscn" id="2_bp3ed"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/UnitHealthBar.tscn" id="2_bp3ed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
 
@@ -263,6 +263,6 @@ position = Vector2(3, 3)
 node_a = NodePath("../..")
 node_b = NodePath("..")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(18, 67)
-zoom = Vector2(0.675, 0.675)
+[node name="PreviewCamera" type="Camera2D" parent="."]
+position = Vector2(19, 64)
+zoom = Vector2(6.685, 6.685)

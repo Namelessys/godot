@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7u6earxjamkc"]
 
 [ext_resource type="Script" path="res://scripts/unit_human_01.gd" id="1_5cifm"]
-[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/HealthBar.tscn" id="2_e8vq4"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/UnitHealthBar.tscn" id="2_2x1jl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
 
@@ -50,7 +50,7 @@ color = Color(0.462745, 0.670588, 0.87451, 1)
 collision_layer = 256
 collision_mask = 0
 
-[node name="HealthBar" parent="Body" instance=ExtResource("2_e8vq4")]
+[node name="HealthBar" parent="Body" instance=ExtResource("2_2x1jl")]
 position = Vector2(-4, -25)
 
 [node name="Left_EnemyDetector" type="RayCast2D" parent="Body"]
@@ -263,6 +263,6 @@ position = Vector2(3, 3)
 node_a = NodePath("../..")
 node_b = NodePath("..")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(18, 67)
-zoom = Vector2(0.675, 0.675)
+[node name="PreviewCamera" type="Camera2D" parent="."]
+position = Vector2(19, 64)
+zoom = Vector2(6.685, 6.685)

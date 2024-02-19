@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo1x5dvivm04h"]
+[gd_scene load_steps=5 format=3 uid="uid://chqajrg6oukvv"]
 
 [ext_resource type="Script" path="res://scripts/unit_dummy_01.gd" id="1_1yg5t"]
-[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/HealthBar.tscn" id="2_5gg6p"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/UnitHealthBar.tscn" id="2_5gg6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
 
@@ -58,3 +58,7 @@ offset_top = 95.0
 offset_right = 26.0
 offset_bottom = 135.0
 color = Color(0.478431, 0.294118, 0.133333, 1)
+
+[node name="PreviewCamera" type="Camera2D" parent="."]
+position = Vector2(19, 75)
+zoom = Vector2(7.4, 7.4)

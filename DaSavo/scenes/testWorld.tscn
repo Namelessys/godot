@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bsjrvucod13d4"]
 
-[ext_resource type="PackedScene" uid="uid://bo1x5dvivm04h" path="res://objects/PlayerUnits/Unit_Dummy.tscn" id="1_7cyfj"]
+[ext_resource type="PackedScene" uid="uid://chqajrg6oukvv" path="res://objects/PlayerUnits/Unit_Dummy.tscn" id="1_7cyfj"]
 [ext_resource type="PackedScene" uid="uid://c7u6earxjamkc" path="res://objects/PlayerUnits/Unit_Human.tscn" id="2_6l16t"]
-[ext_resource type="PackedScene" uid="uid://b8ps4rqmk0aai" path="res://objects/hud/UnitsMenu.tscn" id="3_d0ynm"]
+[ext_resource type="PackedScene" uid="uid://dqiqd8ttdgois" path="res://game/player/player.tscn" id="3_iu0vk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jqy12"]
 
@@ -11,20 +11,14 @@ size = Vector2(1150, 153)
 
 [node name="TestWorld" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(332, 186)
-zoom = Vector2(1.545, 1.545)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_jqy12")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(575, 311)
 shape = SubResource("RectangleShape2D_eh7kv")
 
-[node name="UnitsMenu" parent="." instance=ExtResource("3_d0ynm")]
-
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Ground"]
 offset_left = -1.0
 offset_top = 235.0
 offset_right = 1147.0
@@ -46,6 +40,5 @@ position = Vector2(439, 98)
 position = Vector2(546, 88)
 is_enemy = true
 
-[node name="Objects" type="Node" parent="."]
-
-[node name="Game" type="Node" parent="."]
+[node name="Player" parent="." instance=ExtResource("3_iu0vk")]
+position = Vector2(-1, -2)

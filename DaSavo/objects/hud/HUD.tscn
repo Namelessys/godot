@@ -1,0 +1,187 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8ps4rqmk0aai"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_8afvx"]
+[ext_resource type="Script" path="res://scripts/spawn_unit.gd" id="1_56bdh"]
+[ext_resource type="PackedScene" uid="uid://c7u6earxjamkc" path="res://objects/PlayerUnits/Unit_Human.tscn" id="2_bkm6d"]
+[ext_resource type="PackedScene" uid="uid://cyxwp4pku28x4" path="res://objects/PlayerUnits/Unit_Speedo.tscn" id="3_400oq"]
+[ext_resource type="PackedScene" uid="uid://chqajrg6oukvv" path="res://objects/PlayerUnits/Unit_Dummy.tscn" id="5_3dutp"]
+[ext_resource type="PackedScene" uid="uid://biifvqbdgjk6n" path="res://objects/hud/UnitButton.tscn" id="5_y3uc5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q4ekc"]
+viewport_path = NodePath("UnitMenu_old/MarginContainer/HBoxContainer/Button/SubViewport")
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_8afvx")
+
+[node name="UnitMenu_old" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="UnitMenu_old"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1088.0
+offset_top = -222.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UnitMenu_old/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Button" type="Button" parent="UnitMenu_old/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("ViewportTexture_q4ekc")
+script = ExtResource("1_56bdh")
+UNIT = ExtResource("2_bkm6d")
+
+[node name="SubViewport" type="SubViewport" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button"]
+handle_input_locally = false
+size = Vector2i(150, 150)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Unit_Human01" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button/SubViewport" instance=ExtResource("2_bkm6d")]
+process_mode = 4
+
+[node name="Button2" type="Button" parent="UnitMenu_old/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("ViewportTexture_q4ekc")
+script = ExtResource("1_56bdh")
+UNIT = ExtResource("3_400oq")
+
+[node name="SubViewport" type="SubViewport" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button2"]
+handle_input_locally = false
+size = Vector2i(150, 150)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Unit_Speedo" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button2/SubViewport" instance=ExtResource("3_400oq")]
+
+[node name="MarginContainer" type="MarginContainer" parent="UnitMenu_old"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -222.0
+offset_right = 384.0
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UnitMenu_old/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="UnitMenu_old/MarginContainer/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("ViewportTexture_q4ekc")
+script = ExtResource("1_56bdh")
+UNIT = ExtResource("2_bkm6d")
+
+[node name="SubViewport" type="SubViewport" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button"]
+handle_input_locally = false
+size = Vector2i(150, 150)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Unit_Human01" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button/SubViewport" instance=ExtResource("2_bkm6d")]
+process_mode = 4
+
+[node name="Button2" type="Button" parent="UnitMenu_old/MarginContainer/HBoxContainer"]
+layout_mode = 2
+icon = SubResource("ViewportTexture_q4ekc")
+script = ExtResource("1_56bdh")
+UNIT = ExtResource("3_400oq")
+
+[node name="SubViewport" type="SubViewport" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button2"]
+handle_input_locally = false
+size = Vector2i(150, 150)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Unit_Speedo" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button2/SubViewport" instance=ExtResource("3_400oq")]
+
+[node name="MarginContainer_healthbars" type="MarginContainer" parent="UnitMenu_old"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 10.0
+offset_right = 1117.0
+offset_bottom = 83.0
+
+[node name="MoneyDisplay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 74.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MoneyDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoneyText" type="RichTextLabel" parent="MoneyDisplay/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.815686, 0, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "Money: "
+
+[node name="UnitMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UnitMenu"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UnitMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="DummyButton" parent="UnitMenu/MarginContainer/HBoxContainer" instance=ExtResource("5_y3uc5")]
+layout_mode = 2
+UNIT = ExtResource("5_3dutp")
+
+[node name="HumanButton" parent="UnitMenu/MarginContainer/HBoxContainer" instance=ExtResource("5_y3uc5")]
+layout_mode = 2
+UNIT = ExtResource("2_bkm6d")
+
+[node name="SpeedoButton" parent="UnitMenu/MarginContainer/HBoxContainer" instance=ExtResource("5_y3uc5")]
+layout_mode = 2
+UNIT = ExtResource("3_400oq")
+
+[connection signal="button_up" from="UnitMenu_old/MarginContainer2/HBoxContainer/Button" to="UnitMenu_old/MarginContainer2/HBoxContainer/Button" method="_on_button_up" binds= [true]]
+[connection signal="button_up" from="UnitMenu_old/MarginContainer2/HBoxContainer/Button2" to="UnitMenu_old/MarginContainer2/HBoxContainer/Button2" method="_on_button_up" binds= [true]]
+[connection signal="button_up" from="UnitMenu_old/MarginContainer/HBoxContainer/Button" to="UnitMenu_old/MarginContainer/HBoxContainer/Button" method="_on_button_up" binds= [false]]
+[connection signal="button_up" from="UnitMenu_old/MarginContainer/HBoxContainer/Button2" to="UnitMenu_old/MarginContainer/HBoxContainer/Button2" method="_on_button_up" binds= [false]]

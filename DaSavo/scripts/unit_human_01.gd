@@ -14,6 +14,9 @@ extends Unit
 @onready var pos_y = body.position.y
 @onready var pos_x = body.position.x
 
+@export var torque_factor = 1
+@export var speed_factor = 1
+
 @export var leg_torque = 90000
 @export var lower_leg_torque = 100000
 @export var arm_torque = 90000
@@ -38,17 +41,17 @@ func _physics_process(delta):
 	physics_process(delta)
 	
 	if is_walking:
-		pos_x += walk_speed
-		leg1.apply_torque(leg_torque)
-		lower_leg1.apply_torque(lower_leg_torque)
-		leg2.apply_torque(leg_torque)
-		lower_leg2.apply_torque(lower_leg_torque)
+		pos_x += walk_speed * speed_factor
+		leg1.apply_torque(leg_torque * torque_factor)
+		lower_leg1.apply_torque(lower_leg_torque * torque_factor)
+		leg2.apply_torque(leg_torque * torque_factor)
+		lower_leg2.apply_torque(lower_leg_torque * torque_factor)
 	
 	if is_attacking:
-		arm1.apply_torque(arm_torque)
-		lower_arm1.apply_torque(lower_arm_torque)
-		arm2.apply_torque(arm_torque)
-		lower_arm2.apply_torque(lower_arm_torque)
+		arm1.apply_torque(arm_torque * torque_factor)
+		lower_arm1.apply_torque(lower_arm_torque * torque_factor)
+		arm2.apply_torque(arm_torque * torque_factor)
+		lower_arm2.apply_torque(lower_arm_torque * torque_factor)
 		
 	body.position = Vector2(pos_x, pos_y)
 	

@@ -15,7 +15,7 @@ func _ready():
 	else:
 		health_bar.find_child("ColorRect").color = Color(enemy_color)
 
-func _process(delta):
+func _process(_delta):
 	if parent.has_method("get_health"):
 		health = parent.get_health() / parent.get_max_health()
 		health_bar.set_size(Vector2(health_bar_size[0] * health, health_bar_size[1]))
