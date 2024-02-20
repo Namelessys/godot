@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://biifvqbdgjk6n"]
 
-[ext_resource type="Script" path="res://scripts/unit_button.gd" id="1_d1hdy"]
+[ext_resource type="Script" path="res://game/hud/UnitButton/scripts/unit_button.gd" id="1_d80qq"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ylev5"]
 viewport_path = NodePath("SubViewport")
@@ -18,7 +18,7 @@ bg_color = Color(0.443137, 0, 0, 1)
 custom_minimum_size = Vector2(150, 150)
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_d1hdy")
+script = ExtResource("1_d80qq")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(1024, 1024)

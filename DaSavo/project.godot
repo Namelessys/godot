@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DaSavo"
-run/main_scene="res://scenes/testWorld.tscn"
+run/main_scene="res://scenes/TestWorld/TestWorld.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 config/layer_1=""
@@ -21,9 +21,10 @@ config/layer_10="Weapon"
 
 [autoload]
 
-GameInterface="*res://scripts/global/GameInterface.gd"
+game="*res://scripts/global/game.gd"
 config="*res://scripts/global/config.gd"
-player_status="*res://scripts/global/player_status.gd"
+status="*res://scripts/global/status.gd"
+global_test="*res://scripts/global/global_test.gd"
 
 [display]
 

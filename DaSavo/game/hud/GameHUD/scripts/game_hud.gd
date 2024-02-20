@@ -4,4 +4,4 @@ extends Node
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	money_text.text = "Money: " + str(int(player_status.money))
+	money_text.text = "Money: " + str(int(status.player.money))

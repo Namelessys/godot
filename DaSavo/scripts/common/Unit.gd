@@ -1,8 +1,9 @@
 extends Node
 class_name Unit
 
-@export var is_enemy = false
-@export var walk_speed = 1
+@export var is_enemy : bool = false
+@export var cost : float = 0
+@export var walk_speed : float = 1
 @export var max_health : float = 100
 @export var health : float = 100
 @export var damage : float = 1
@@ -32,7 +33,7 @@ func set_collision_layers(name_to_change, class_to_change):
 			else:
 				child.set_collision_mask(512)
 
-func ready():
+func ready():	
 	set_collision_layers("", "RigidBody2D")
 	set_collision_layers("", "StaticBody2D")
 	set_collision_layers("*_EnemyDetector", "")
@@ -66,6 +67,8 @@ func physics_process(_delta):
 func hit(hit_damage):
 	#print(health, " ", damage)
 	health -= hit_damage
+	
+	
 
 func die():
 	self.queue_free()

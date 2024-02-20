@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7u6earxjamkc"]
 
-[ext_resource type="Script" path="res://scripts/unit_human_01.gd" id="1_5cifm"]
-[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/UnitHealthBar.tscn" id="2_2x1jl"]
+[ext_resource type="Script" path="res://objects/player_units/Unit_Human/scripts/unit_human_01.gd" id="1_3w084"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://game/hud/UnitHealthBar/UnitHealthBar.tscn" id="2_tkq63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
 
@@ -20,11 +20,13 @@ size = Vector2(7, 32)
 size = Vector2(7, 32)
 
 [node name="Unit_Human" type="Node2D"]
-script = ExtResource("1_5cifm")
+position = Vector2(15, -4)
+script = ExtResource("1_3w084")
+cost = 10.0
 damage = 10.0
 
 [node name="Head" type="RigidBody2D" parent="."]
-position = Vector2(17, 7)
+position = Vector2(9, -142)
 collision_layer = 256
 collision_mask = 0
 
@@ -47,10 +49,11 @@ offset_bottom = 12.0
 color = Color(0.462745, 0.670588, 0.87451, 1)
 
 [node name="Body" type="StaticBody2D" parent="."]
+position = Vector2(-8, -149)
 collision_layer = 256
 collision_mask = 0
 
-[node name="HealthBar" parent="Body" instance=ExtResource("2_2x1jl")]
+[node name="HealthBar" parent="Body" instance=ExtResource("2_tkq63")]
 position = Vector2(-4, -25)
 
 [node name="Left_EnemyDetector" type="RayCast2D" parent="Body"]
@@ -264,5 +267,5 @@ node_a = NodePath("../..")
 node_b = NodePath("..")
 
 [node name="PreviewCamera" type="Camera2D" parent="."]
-position = Vector2(19, 64)
+position = Vector2(11, -85)
 zoom = Vector2(6.685, 6.685)

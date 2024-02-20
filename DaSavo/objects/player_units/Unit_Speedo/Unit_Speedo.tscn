@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cyxwp4pku28x4"]
 
-[ext_resource type="Script" path="res://scripts/unit_human_01.gd" id="1_hpj3b"]
-[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://objects/hud/UnitHealthBar.tscn" id="2_bp3ed"]
+[ext_resource type="Script" path="res://objects/player_units/Unit_Human/scripts/unit_human_01.gd" id="1_reboj"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://game/hud/UnitHealthBar/UnitHealthBar.tscn" id="2_gvcm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
 
@@ -20,11 +20,13 @@ size = Vector2(7, 32)
 size = Vector2(7, 32)
 
 [node name="Unit_Speedo" type="Node2D"]
-script = ExtResource("1_hpj3b")
+script = ExtResource("1_reboj")
+speed_factor = 3
+cost = 20.0
 damage = 10.0
 
 [node name="Head" type="RigidBody2D" parent="."]
-position = Vector2(17, 7)
+position = Vector2(14, -145)
 collision_layer = 256
 collision_mask = 0
 
@@ -44,13 +46,15 @@ offset_left = -10.0
 offset_top = -11.0
 offset_right = 11.0
 offset_bottom = 12.0
-color = Color(0.976471, 0.337255, 0.933333, 1)
+color = Color(0.988235, 0, 0.588235, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Body" type="StaticBody2D" parent="."]
+position = Vector2(-3, -152)
 collision_layer = 256
 collision_mask = 0
 
-[node name="HealthBar" parent="Body" instance=ExtResource("2_bp3ed")]
+[node name="HealthBar" parent="Body" instance=ExtResource("2_gvcm8")]
 position = Vector2(-4, -25)
 
 [node name="Left_EnemyDetector" type="RayCast2D" parent="Body"]
@@ -264,5 +268,5 @@ node_a = NodePath("../..")
 node_b = NodePath("..")
 
 [node name="PreviewCamera" type="Camera2D" parent="."]
-position = Vector2(19, 64)
+position = Vector2(16, -88)
 zoom = Vector2(6.685, 6.685)

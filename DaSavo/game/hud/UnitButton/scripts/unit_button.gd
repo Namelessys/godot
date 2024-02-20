@@ -3,7 +3,6 @@ extends Node
 @export var UNIT : PackedScene
 
 @onready var sub_viewport = $SubViewport
-@onready var panel = $Panel
 @onready var button = $Button
 
 var unit
@@ -20,10 +19,12 @@ func _ready():
 		unit.speed_factor = 0
 	sub_viewport.add_child(unit)
 
-
 func _on_button_pressed():
 	if "spawn_wiggle" in unit:
 		unit.spawn_wiggle()
+	
+	game.spawn_player_unit(UNIT)
+		
 		
 	print("SPAWN")
 

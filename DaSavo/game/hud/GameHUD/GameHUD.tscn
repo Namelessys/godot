@@ -1,17 +1,17 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8ps4rqmk0aai"]
 
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_8afvx"]
-[ext_resource type="Script" path="res://scripts/spawn_unit.gd" id="1_56bdh"]
-[ext_resource type="PackedScene" uid="uid://c7u6earxjamkc" path="res://objects/PlayerUnits/Unit_Human.tscn" id="2_bkm6d"]
-[ext_resource type="PackedScene" uid="uid://cyxwp4pku28x4" path="res://objects/PlayerUnits/Unit_Speedo.tscn" id="3_400oq"]
-[ext_resource type="PackedScene" uid="uid://chqajrg6oukvv" path="res://objects/PlayerUnits/Unit_Dummy.tscn" id="5_3dutp"]
-[ext_resource type="PackedScene" uid="uid://biifvqbdgjk6n" path="res://objects/hud/UnitButton.tscn" id="5_y3uc5"]
+[ext_resource type="Script" path="res://game/hud/GameHUD/scripts/game_hud.gd" id="1_n8qfs"]
+[ext_resource type="Script" path="res://scripts/old/spawn_unit.gd" id="2_8gdup"]
+[ext_resource type="PackedScene" uid="uid://c7u6earxjamkc" path="res://objects/player_units/Unit_Human/Unit_Human.tscn" id="3_h30s4"]
+[ext_resource type="PackedScene" uid="uid://cyxwp4pku28x4" path="res://objects/player_units/Unit_Speedo/Unit_Speedo.tscn" id="4_dl2re"]
+[ext_resource type="PackedScene" uid="uid://biifvqbdgjk6n" path="res://game/hud/UnitButton/UnitButton.tscn" id="5_dsf6i"]
+[ext_resource type="PackedScene" uid="uid://chqajrg6oukvv" path="res://objects/player_units/Unit_Dummy/Unit_Dummy.tscn" id="6_rf5ye"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_q4ekc"]
 viewport_path = NodePath("UnitMenu_old/MarginContainer/HBoxContainer/Button/SubViewport")
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_8afvx")
+script = ExtResource("1_n8qfs")
 
 [node name="UnitMenu_old" type="Control" parent="."]
 visible = false
@@ -45,8 +45,8 @@ size_flags_horizontal = 8
 [node name="Button" type="Button" parent="UnitMenu_old/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 icon = SubResource("ViewportTexture_q4ekc")
-script = ExtResource("1_56bdh")
-UNIT = ExtResource("2_bkm6d")
+script = ExtResource("2_8gdup")
+UNIT = ExtResource("3_h30s4")
 
 [node name="SubViewport" type="SubViewport" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button"]
 handle_input_locally = false
@@ -54,14 +54,14 @@ size = Vector2i(150, 150)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="Unit_Human01" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button/SubViewport" instance=ExtResource("2_bkm6d")]
+[node name="Unit_Human01" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button/SubViewport" instance=ExtResource("3_h30s4")]
 process_mode = 4
 
 [node name="Button2" type="Button" parent="UnitMenu_old/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 icon = SubResource("ViewportTexture_q4ekc")
-script = ExtResource("1_56bdh")
-UNIT = ExtResource("3_400oq")
+script = ExtResource("2_8gdup")
+UNIT = ExtResource("4_dl2re")
 
 [node name="SubViewport" type="SubViewport" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button2"]
 handle_input_locally = false
@@ -69,7 +69,7 @@ size = Vector2i(150, 150)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="Unit_Speedo" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button2/SubViewport" instance=ExtResource("3_400oq")]
+[node name="Unit_Speedo" parent="UnitMenu_old/MarginContainer2/HBoxContainer/Button2/SubViewport" instance=ExtResource("4_dl2re")]
 
 [node name="MarginContainer" type="MarginContainer" parent="UnitMenu_old"]
 layout_mode = 1
@@ -90,8 +90,8 @@ layout_mode = 2
 [node name="Button" type="Button" parent="UnitMenu_old/MarginContainer/HBoxContainer"]
 layout_mode = 2
 icon = SubResource("ViewportTexture_q4ekc")
-script = ExtResource("1_56bdh")
-UNIT = ExtResource("2_bkm6d")
+script = ExtResource("2_8gdup")
+UNIT = ExtResource("3_h30s4")
 
 [node name="SubViewport" type="SubViewport" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button"]
 handle_input_locally = false
@@ -99,14 +99,14 @@ size = Vector2i(150, 150)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="Unit_Human01" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button/SubViewport" instance=ExtResource("2_bkm6d")]
+[node name="Unit_Human01" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button/SubViewport" instance=ExtResource("3_h30s4")]
 process_mode = 4
 
 [node name="Button2" type="Button" parent="UnitMenu_old/MarginContainer/HBoxContainer"]
 layout_mode = 2
 icon = SubResource("ViewportTexture_q4ekc")
-script = ExtResource("1_56bdh")
-UNIT = ExtResource("3_400oq")
+script = ExtResource("2_8gdup")
+UNIT = ExtResource("4_dl2re")
 
 [node name="SubViewport" type="SubViewport" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button2"]
 handle_input_locally = false
@@ -114,7 +114,7 @@ size = Vector2i(150, 150)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="Unit_Speedo" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button2/SubViewport" instance=ExtResource("3_400oq")]
+[node name="Unit_Speedo" parent="UnitMenu_old/MarginContainer/HBoxContainer/Button2/SubViewport" instance=ExtResource("4_dl2re")]
 
 [node name="MarginContainer_healthbars" type="MarginContainer" parent="UnitMenu_old"]
 layout_mode = 0
@@ -170,20 +170,20 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="DummyButton" parent="UnitMenu/MarginContainer/HBoxContainer" instance=ExtResource("5_y3uc5")]
+[node name="DummyButton" parent="UnitMenu/MarginContainer/HBoxContainer" instance=ExtResource("5_dsf6i")]
 layout_mode = 2
 tooltip_text = "A dumb dummy"
-UNIT = ExtResource("5_3dutp")
+UNIT = ExtResource("6_rf5ye")
 
-[node name="HumanButton" parent="UnitMenu/MarginContainer/HBoxContainer" instance=ExtResource("5_y3uc5")]
+[node name="HumanButton" parent="UnitMenu/MarginContainer/HBoxContainer" instance=ExtResource("5_dsf6i")]
 layout_mode = 2
 tooltip_text = "Just an average human being"
-UNIT = ExtResource("2_bkm6d")
+UNIT = ExtResource("3_h30s4")
 
-[node name="SpeedoButton" parent="UnitMenu/MarginContainer/HBoxContainer" instance=ExtResource("5_y3uc5")]
+[node name="SpeedoButton" parent="UnitMenu/MarginContainer/HBoxContainer" instance=ExtResource("5_dsf6i")]
 layout_mode = 2
 tooltip_text = "An average human being on crack"
-UNIT = ExtResource("3_400oq")
+UNIT = ExtResource("4_dl2re")
 
 [connection signal="button_up" from="UnitMenu_old/MarginContainer2/HBoxContainer/Button" to="UnitMenu_old/MarginContainer2/HBoxContainer/Button" method="_on_button_up" binds= [true]]
 [connection signal="button_up" from="UnitMenu_old/MarginContainer2/HBoxContainer/Button2" to="UnitMenu_old/MarginContainer2/HBoxContainer/Button2" method="_on_button_up" binds= [true]]

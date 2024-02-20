@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53rb5rmk4063"]
+
+[ext_resource type="Script" path="res://objects/ai/Dumby/scipts/ai_dumby.gd" id="1_c35lt"]
+
+[node name="AI_Dumby" type="Node2D"]
+script = ExtResource("1_c35lt")
+
+[node name="EnemySpawn" type="Node2D" parent="."]
