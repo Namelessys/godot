@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxr5kpsrqbca3"]
+
+[ext_resource type="PackedScene" uid="uid://b5nbrji5mie4r" path="res://objects/Player.tscn" id="1_3tmps"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="2_yuhmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrcaa"]
+size = Vector2(874, 82)
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_3tmps")]
+health = 17.0
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(102, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_wrcaa")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -442.0
+offset_top = -40.0
+offset_right = 439.0
+offset_bottom = 43.0
+color = Color(0.317647, 0.658824, 0.729412, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 61.0
+offset_top = -181.0
+offset_right = 283.0
+offset_bottom = -135.0
+text = "Guck das Knopf Diggah"
+script = ExtResource("2_yuhmu")
+
+[connection signal="pressed" from="Button" to="Player" method="_on_rigid_body_2d_mouse_entered"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

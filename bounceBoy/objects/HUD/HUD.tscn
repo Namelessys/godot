@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cciaaxtrk2jum"]
+
+[ext_resource type="Script" path="res://objects/HUD/scripts/hud.gd" id="1_qkga1"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_qkga1")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "SCORE"

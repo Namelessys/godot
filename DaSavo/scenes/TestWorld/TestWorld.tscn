@@ -36,16 +36,20 @@ offset_bottom = 388.0
 [node name="Units" type="Node" parent="World"]
 
 [node name="Unit_Human01" parent="World/Units" instance=ExtResource("2_f7r5y")]
+visible = false
 position = Vector2(88, 88)
 
 [node name="Unit_Dummy" parent="World/Units" instance=ExtResource("3_h6aaq")]
+visible = false
 position = Vector2(217, 100)
 is_enemy = true
 
 [node name="Unit_Dummy01" parent="World/Units" instance=ExtResource("3_h6aaq")]
+visible = false
 position = Vector2(439, 98)
 
 [node name="Unit_Human02" parent="World/Units" instance=ExtResource("2_f7r5y")]
+visible = false
 position = Vector2(546, 88)
 is_enemy = true
 
@@ -54,5 +58,5 @@ position = Vector2(103, 232)
 
 [node name="AI_Dumby" parent="World" instance=ExtResource("5_crh21")]
 position = Vector2(577, 234)
-money_gain = 3.0
+money_gain = 10.0
 unit = ExtResource("2_f7r5y")
