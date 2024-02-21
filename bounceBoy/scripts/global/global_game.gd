@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION = "0.1"
+const VERSION = "0.2"
 const FOV_BASE_VALUE = 2
 
 var highscores = []
