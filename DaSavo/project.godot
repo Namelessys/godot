@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DaSavo"
-run/main_scene="res://scenes/TestWorld/TestWorld.tscn"
+run/main_scene="res://scenes/TestWorld.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 config/layer_1=""

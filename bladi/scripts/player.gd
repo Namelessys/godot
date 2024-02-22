@@ -1,23 +1,27 @@
-extends Node2D
+extends CharacterBody3D
 
-@onready var rigid_body = $RigidBody2D
+const CONSTANTINOPEL = "Consinus Consarus Consus"
 
-@export var health : float = 1
+@export var movement_speed = 5
+@export var jump_velocity = 3
+@export var acceleration = 1
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#rigid_body = $RigidBody2D # == rigid_body = find_child("RigidBody2D")
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+func _physics_process(delta):
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	else:
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = jump_velocity
 	
-	pass # Replace with function body.
+	var forward_direction = Input.get_axis("backward", "forward")
+	var actual_acceleration = acceleration
+	if velocity.x < 0 and forward_direction > 0 \
+	or velocity.x > 0 and forward_direction < 0:
+		actual_acceleration *= 2
+	velocity.x = move_toward(velocity.x, forward_direction * movement_speed, actual_acceleration * delta)
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#print(global_position)
-	#print(health)
-	pass
-
-
-func _on_rigid_body_2d_mouse_entered():
-	rigid_body.apply_impulse(Vector2(0, -1000))
-	pass # Replace with function body.
+	
+	move_and_slide()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7u6earxjamkc"]
 
-[ext_resource type="Script" path="res://objects/player_units/Unit_Human/scripts/unit_human_01.gd" id="1_3w084"]
-[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://game/hud/UnitHealthBar/UnitHealthBar.tscn" id="2_tkq63"]
+[ext_resource type="Script" path="res://scripts/objects/unit_human_01.gd" id="1_jtcor"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://game/hud/UnitHealthBar.tscn" id="2_ki8jv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
 
@@ -21,7 +21,7 @@ size = Vector2(7, 32)
 
 [node name="Unit_Human" type="Node2D"]
 position = Vector2(15, -4)
-script = ExtResource("1_3w084")
+script = ExtResource("1_jtcor")
 cost = 10.0
 damage = 10.0
 
@@ -53,7 +53,7 @@ position = Vector2(-8, -149)
 collision_layer = 256
 collision_mask = 0
 
-[node name="HealthBar" parent="Body" instance=ExtResource("2_tkq63")]
+[node name="HealthBar" parent="Body" instance=ExtResource("2_ki8jv")]
 position = Vector2(-4, -25)
 
 [node name="Left_EnemyDetector" type="RayCast2D" parent="Body"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqiqd8ttdgois"]
+
+[ext_resource type="Script" path="res://scripts/game/player_main.gd" id="1_2wsy4"]
+[ext_resource type="Script" path="res://scripts/game/player_camera.gd" id="2_s2011"]
+[ext_resource type="PackedScene" uid="uid://b8ps4rqmk0aai" path="res://game/hud/GameHUD.tscn" id="3_a2xk1"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_2wsy4")
+
+[node name="CameraController" type="Node" parent="."]
+script = ExtResource("2_s2011")
+
+[node name="HUD" parent="." instance=ExtResource("3_a2xk1")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 316)

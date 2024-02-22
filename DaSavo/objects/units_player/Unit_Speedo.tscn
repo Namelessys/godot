@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cyxwp4pku28x4"]
 
-[ext_resource type="Script" path="res://objects/player_units/Unit_Human/scripts/unit_human_01.gd" id="1_reboj"]
-[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://game/hud/UnitHealthBar/UnitHealthBar.tscn" id="2_gvcm8"]
+[ext_resource type="Script" path="res://scripts/objects/unit_human_01.gd" id="1_fdb6a"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://game/hud/UnitHealthBar.tscn" id="2_pvyou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
 
@@ -20,7 +20,7 @@ size = Vector2(7, 32)
 size = Vector2(7, 32)
 
 [node name="Unit_Speedo" type="Node2D"]
-script = ExtResource("1_reboj")
+script = ExtResource("1_fdb6a")
 speed_factor = 3
 cost = 20.0
 damage = 10.0
@@ -54,7 +54,7 @@ position = Vector2(-3, -152)
 collision_layer = 256
 collision_mask = 0
 
-[node name="HealthBar" parent="Body" instance=ExtResource("2_gvcm8")]
+[node name="HealthBar" parent="Body" instance=ExtResource("2_pvyou")]
 position = Vector2(-4, -25)
 
 [node name="Left_EnemyDetector" type="RayCast2D" parent="Body"]

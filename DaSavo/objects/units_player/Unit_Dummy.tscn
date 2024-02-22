@@ -1,15 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://chqajrg6oukvv"]
 
-[ext_resource type="Script" path="res://objects/player_units/Unit_Dummy/scripts/unit_dummy_01.gd" id="1_yxmqk"]
-[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://game/hud/UnitHealthBar/UnitHealthBar.tscn" id="2_ne6qv"]
+[ext_resource type="Script" path="res://scripts/objects/unit_dummy_01.gd" id="1_nri1b"]
+[ext_resource type="PackedScene" uid="uid://cgyubyuudo3xy" path="res://game/hud/UnitHealthBar.tscn" id="2_dnmto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eekku"]
+size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yg70k"]
 size = Vector2(40, 56)
 
 [node name="Unit_Dummy" type="Node2D"]
-script = ExtResource("1_yxmqk")
+script = ExtResource("1_nri1b")
 
 [node name="Head" type="RigidBody2D" parent="."]
 position = Vector2(18, -123)
@@ -40,7 +41,7 @@ position = Vector2(0, -137)
 collision_layer = 256
 collision_mask = 0
 
-[node name="HealthBar" parent="Body" instance=ExtResource("2_ne6qv")]
+[node name="HealthBar" parent="Body" instance=ExtResource("2_dnmto")]
 position = Vector2(-2, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5nbrji5mie4r"]
+
+[ext_resource type="Script" path="res://scripts/old/player.gd" id="1_yjbem"]
+[ext_resource type="Script" path="res://scripts/old/fest_koerper.gd" id="2_qnr36"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fpxxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uahar"]
+size = Vector2(40, 40)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_yjbem")
+health = 33.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_fpxxa")
+script = ExtResource("2_qnr36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_uahar")
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+color = Color(0, 0.470588, 0.054902, 1)
+
+[connection signal="mouse_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_mouse_entered"]

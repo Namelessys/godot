@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgyubyuudo3xy"]
 
-[ext_resource type="Script" path="res://game/hud/UnitHealthBar/Scripts/health_bar.gd" id="1_tlxgf"]
+[ext_resource type="Script" path="res://scripts/hud/health_bar.gd" id="1_b3djb"]
 
 [node name="HealthBar" type="Node2D"]
-script = ExtResource("1_tlxgf")
+script = ExtResource("1_b3djb")
 
 [node name="Background" type="PanelContainer" parent="."]
 offset_right = 45.0
