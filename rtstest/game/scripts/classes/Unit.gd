@@ -55,6 +55,9 @@ func process(delta):
 	
 	var closest_enemy = get_closes_enemy()
 	
+	if get_current_target() == null:
+		set_state(IDLE)
+	
 	if closest_enemy == null:
 		set_state(IDLE)
 	elif state == IDLE or state == WALKING:

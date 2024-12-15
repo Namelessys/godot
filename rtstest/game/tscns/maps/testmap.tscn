@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://wgemmq0oakqr"]
+[gd_scene load_steps=7 format=3 uid="uid://wgemmq0oakqr"]
 
 [ext_resource type="PackedScene" uid="uid://dp0j228r805r8" path="res://game/tscns/common/CameraMatch.tscn" id="1_fu8qi"]
 [ext_resource type="Script" path="res://game/scripts/classes/UnitPhysics.gd" id="1_w7brr"]
-[ext_resource type="Script" path="res://game/scripts/singletons/Pausing.gd" id="4_d6exj"]
 [ext_resource type="Script" path="res://game/scripts/common/UnitTesting.gd" id="5_lk7xr"]
 [ext_resource type="PackedScene" uid="uid://b3uoh18flbixb" path="res://game/tscns/units/Barbarian.tscn" id="6_hb1qs"]
 
@@ -16,7 +15,7 @@ size = Vector3(10, 1, 10)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.480767)
 
 [node name="CameraMatch" parent="." instance=ExtResource("1_fu8qi")]
-transform = Transform3D(1, 0, 0, 0, 0.81648, 0.577373, 0, -0.577373, 0.81648, 0, 7.61741, 5.84521)
+transform = Transform3D(1, 0, 0, 0, 0.81648, 0.577373, 0, -0.577373, 0.81648, 0, 9.0658, 8.92316)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -31,22 +30,19 @@ skeleton = NodePath("../..")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.67568, 0.737195, 0, -0.737195, -0.67568, 0, 7.43334, -6.24568)
 
-[node name="Units" type="Node" parent="."]
+[node name="UnitContainer" type="Node" parent="."]
 process_priority = 50
 process_physics_priority = 50
 script = ExtResource("1_w7brr")
 
-[node name="Barbarian" parent="Units" instance=ExtResource("6_hb1qs")]
+[node name="Barbarian" parent="UnitContainer" instance=ExtResource("6_hb1qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19846, 4.76837e-07, 0.951257)
 affiliation = 2
 
-[node name="Barbarian2" parent="Units" instance=ExtResource("6_hb1qs")]
+[node name="Barbarian2" parent="UnitContainer" instance=ExtResource("6_hb1qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30679, 0, 0.798342)
 affiliation = 1
 
-[node name="Pausing" type="Node" parent="."]
-process_priority = 1052
-script = ExtResource("4_d6exj")
-
 [node name="UnitTesting" type="Node" parent="."]
 script = ExtResource("5_lk7xr")
+unit = ExtResource("6_hb1qs")

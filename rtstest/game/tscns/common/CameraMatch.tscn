@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp0j228r805r8"]
+[gd_scene load_steps=3 format=3 uid="uid://dp0j228r805r8"]
 
+[ext_resource type="Script" path="res://game/scripts/common/CameraMatch.gd" id="1_a7si8"]
 [ext_resource type="PackedScene" uid="uid://j13a50g25qxx" path="res://game/tscns/gui/GUIMatch.tscn" id="1_erd40"]
 
 [node name="CameraMatch" type="Node3D"]
+script = ExtResource("1_a7si8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 
 [node name="GUIMatch" parent="." instance=ExtResource("1_erd40")]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
