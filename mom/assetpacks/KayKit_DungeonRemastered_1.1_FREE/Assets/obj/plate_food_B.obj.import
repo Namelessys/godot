@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dp58gdw2kl5or"
+path="res://.godot/imported/plate_food_B.obj-1de7c6952d832795ccf4ac4499007b2b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plate_food_B.obj-1de7c6952d832795ccf4ac4499007b2b.mesh"]
+
+source_file="res://assetpacks/KayKit_DungeonRemastered_1.1_FREE/Assets/obj/plate_food_B.obj"
+dest_files=["res://.godot/imported/plate_food_B.obj-1de7c6952d832795ccf4ac4499007b2b.mesh", "res://.godot/imported/plate_food_B.obj-1de7c6952d832795ccf4ac4499007b2b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

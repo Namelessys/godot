@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx7rgo18lqk4c"]
+[gd_scene load_steps=4 format=3 uid="uid://dx7rgo18lqk4c"]
 
+[ext_resource type="Script" path="res://scripts/camera.gd" id="1_r8exu"]
 [ext_resource type="PackedScene" uid="uid://buvn6t78vwgki" path="res://objects/Player.tscn" id="1_y7f5c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_had78"]
@@ -22,7 +23,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61854, -0.340499, -1.08855
 size = Vector3(56.7146, 0.349121, 7.27545)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.998571, 0.0531559, 0.00561223, -0.0534514, 0.993051, 0.104847, 0, -0.104997, 0.994473, 0, 0.736172, 10.7868)
+transform = Transform3D(0.999948, 0.00457122, -0.0091685, 0.00347102, 0.69084, 0.723, 0.00963895, -0.722993, 0.690788, 0, 8.22476, 7.47136)
 current = true
+script = ExtResource("1_r8exu")
+exportet = 1
 
 [node name="Player" parent="." instance=ExtResource("1_y7f5c")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1.10022, 0)

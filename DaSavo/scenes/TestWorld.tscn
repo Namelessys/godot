@@ -38,7 +38,8 @@ position = Vector2(57, 237)
 
 [node name="AI_Dumby" parent="World" instance=ExtResource("6_k0kfs")]
 position = Vector2(640, 234)
-unit = ExtResource("4_mfdiu")
+money_gain = 10.0
+unit = ExtResource("3_l7hui")
 
 [node name="Units" type="Node" parent="World"]
 
