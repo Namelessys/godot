@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://wgemmq0oakqr"]
 
-[ext_resource type="PackedScene" uid="uid://c2xa5q362vi1e" path="res://game/tscns/units/TestUnit.tscn" id="1_nnirj"]
 [ext_resource type="Script" path="res://game/scripts/classes/UnitPhysics.gd" id="1_w7brr"]
-[ext_resource type="PackedScene" uid="uid://doiq3m6rd1x5a" path="res://game/tscns/units/Dummy.tscn" id="3_0dy1v"]
 [ext_resource type="Script" path="res://game/scripts/singletons/Pausing.gd" id="4_d6exj"]
+[ext_resource type="Script" path="res://game/scripts/common/UnitTesting.gd" id="5_lk7xr"]
+[ext_resource type="PackedScene" uid="uid://b3uoh18flbixb" path="res://game/tscns/units/Barbarian.tscn" id="6_hb1qs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixrqb"]
 size = Vector3(10, 1, 10)
@@ -35,18 +35,17 @@ process_priority = 50
 process_physics_priority = 50
 script = ExtResource("1_w7brr")
 
-[node name="TestUnit" parent="Units" instance=ExtResource("1_nnirj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16894, 0, 0.467196)
-affiliation = 1
-
-[node name="TestUnit2" parent="Units" instance=ExtResource("1_nnirj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
-affiliation = 1
-
-[node name="Dummy" parent="Units" instance=ExtResource("3_0dy1v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.513515, 0, 2.4641)
+[node name="Barbarian" parent="Units" instance=ExtResource("6_hb1qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19846, 4.76837e-07, 0.951257)
 affiliation = 2
+
+[node name="Barbarian2" parent="Units" instance=ExtResource("6_hb1qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30679, 0, 0.798342)
+affiliation = 1
 
 [node name="Pausing" type="Node" parent="."]
 process_priority = 1052
 script = ExtResource("4_d6exj")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("5_lk7xr")
