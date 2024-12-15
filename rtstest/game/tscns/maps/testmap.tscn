@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://wgemmq0oakqr"]
+[gd_scene load_steps=8 format=3 uid="uid://wgemmq0oakqr"]
 
+[ext_resource type="PackedScene" uid="uid://dp0j228r805r8" path="res://game/tscns/common/CameraMatch.tscn" id="1_fu8qi"]
 [ext_resource type="Script" path="res://game/scripts/classes/UnitPhysics.gd" id="1_w7brr"]
 [ext_resource type="Script" path="res://game/scripts/singletons/Pausing.gd" id="4_d6exj"]
 [ext_resource type="Script" path="res://game/scripts/common/UnitTesting.gd" id="5_lk7xr"]
@@ -14,6 +15,9 @@ size = Vector3(10, 1, 10)
 [node name="Testmap" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.480767)
 
+[node name="CameraMatch" parent="." instance=ExtResource("1_fu8qi")]
+transform = Transform3D(1, 0, 0, 0, 0.81648, 0.577373, 0, -0.577373, 0.81648, 0, 7.61741, 5.84521)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
@@ -23,9 +27,6 @@ shape = SubResource("BoxShape3D_ixrqb")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_331b4")
 skeleton = NodePath("../..")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.555556, 0.831479, 0, -0.831479, 0.555556, 0, 7.7279, 6.36995)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.67568, 0.737195, 0, -0.737195, -0.67568, 0, 7.43334, -6.24568)
@@ -47,5 +48,5 @@ affiliation = 1
 process_priority = 1052
 script = ExtResource("4_d6exj")
 
-[node name="Node" type="Node" parent="."]
+[node name="UnitTesting" type="Node" parent="."]
 script = ExtResource("5_lk7xr")

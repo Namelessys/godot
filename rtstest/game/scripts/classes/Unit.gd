@@ -24,6 +24,7 @@ var stored_damage = 0
 
 @export var affiliation: int = 0
 var state = IDLE
+@export var is_in_preview = false
 
 var current_target: Node3D = null
 var push_forces = Vector3(0, 0, 0)
@@ -38,14 +39,20 @@ func get_radius():
 
 
 func ready():
+	if is_in_preview:
+		health_bar.queue_free()
+		return
 	if health_bar_colors[affiliation - 1] != null:
 		health_bar.set_progress_color(health_bar_colors[affiliation - 1])
 		
 	pass
 
 func process(delta):
-	if get_parent().is_paused:
-		return 
+	if is_in_preview:
+		idle_process(delta)
+		return
+		
+	
 	var closest_enemy = get_closes_enemy()
 	
 	if closest_enemy == null:
@@ -59,7 +66,7 @@ func process(delta):
 	
 	match state:
 		IDLE:
-			pass
+			idle_process(delta)
 		WALKING:
 			move_to_target(delta)
 		WARMUP:
@@ -77,6 +84,8 @@ func process(delta):
 			set_state(DYING)
 	health_bar.set_value(health / max_health)
 
+func idle_process(delta):
+	pass
 func warmup_process(delta):
 	if timer_warmup > 0:
 		timer_warmup -= delta

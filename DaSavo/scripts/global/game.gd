@@ -35,7 +35,3 @@ func defeat():
 	
 func win():
 	get_tree().change_scene_to_file(menus.main)
-
-
-
-

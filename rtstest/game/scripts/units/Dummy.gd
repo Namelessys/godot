@@ -1,7 +1,7 @@
 extends Unit
 
 func _ready():
-	pass 
+	ready()
 
 func _process(delta):
 	process(delta)
