@@ -6,19 +6,19 @@ enum {WALKING, ATTACKING, SPAWNING, DYING}
 enum {GROUND, AIR}
 enum {FIREND, ENEMY}
 
+@export var radius = .5
 @export var health = 1
-@export var speed = 1
+@export var speed = .020
 @export var range = 1
 @export var damage = 1
 
 @export var affiliation: int = 0
 var current_target: Node3D = null
 var push_forces = Vector3(0, 0, 0)
+var colliding_units = []
+var overlapping_areas = []
 
-@onready var collision_area = find_child("CollisionArea")
-@onready var radius = collision_area.find_child("Shape").shape.radius
 @onready var units_container = get_parent()
-
 
 func get_radius():
 	return radius
@@ -42,13 +42,12 @@ func process(delta):
 	var closest_enemy = get_closes_enemy()
 	if closest_enemy != null:
 		current_target = closest_enemy
+	
 	move_to_target(delta)
 	
 func physics_process(delta):
 	if get_parent().is_paused:
 		return 
-		
-	calc_physics()
 	
 func get_closes_enemy():
 	var closest_enemy = null
@@ -71,20 +70,18 @@ func move_to_target(delta):
 	
 	if target_position != position:
 		look_at(target_position)
+		pass
 	
-	global_position += direction * speed * delta 
+	push_forces += direction * speed
 
-func calc_physics():
-	var overlapping_areas = collision_area.get_overlapping_areas()
-	
-	for area in overlapping_areas:
-		var other = area.get_parent()
+func calc_physics(delta):
+	#var overlapping_areas = collision_area.get_overlapping_areas()
+	for other in colliding_units:
 		var push_direction = other.global_position - global_position
 		push_direction = push_direction.normalized()
 		var distance = get_distance_to_unit(other)
 		
 		other.push_forces += push_direction * -distance
-		#other.global_transform.origin = other.global_transform.origin + push_direction * -distance
 		
 
 func test():

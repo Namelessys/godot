@@ -7,7 +7,7 @@ func _ready():
 	print("Game is paused. Press SPACE to advance a frame.")
 
 func _process(delta):
-	units.is_paused = true
+	units.is_paused = false
 	if Input.is_action_pressed("ui_right"):
 		units.is_paused = false	
 

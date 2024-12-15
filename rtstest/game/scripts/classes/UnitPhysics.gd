@@ -9,11 +9,23 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if !is_paused:
-		var x
+		var units = self.get_children()
+		var unit_count = units.size()
+		var itteration = 0
+		for unit in units:
+			itteration += 1
+			for i in range(unit_count - itteration):
+				var other = units[itteration + i]
+				if unit.global_position.distance_to(other.position) - (unit.radius + other.radius) <= 0:
+					unit.colliding_units.append(other)
+					other.colliding_units.append(unit)
+			
+		
+		for unit in units:
+			unit.calc_physics(delta)
+		
 		for unit in self.get_children():
-			print(unit)
-			print(unit.push_forces)
+			unit.colliding_units = []
 			unit.global_position += unit.push_forces
 			unit.push_forces = Vector3(0, 0, 0)
-			#print(unit)
 		
