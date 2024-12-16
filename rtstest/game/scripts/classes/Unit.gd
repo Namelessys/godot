@@ -19,6 +19,7 @@ enum {FIREND, ENEMY}
 	Color(0, .5, 0, 1),
 	Color(.5, 0, 0, 1)
 ]
+var attention_radius = 4
 
 @onready var max_health = health
 var timer_warmup = 0
@@ -31,15 +32,14 @@ var state = IDLE
 
 var current_target: Node3D = null
 var push_forces = Vector3(0, 0, 0)
-var colliding_units = []
+var colliding_units = [] # gets set and clears by UnitPhysics.gd
+var perceivable_units = [] # gets set by UnitPhysics.gd
 
 @onready var units_container = get_parent()
 @onready var health_bar = find_child("HealthBar")
 
 func get_radius():
 	return radius
-	
-
 
 func ready():
 	if is_in_preview:
@@ -89,6 +89,7 @@ func process(delta):
 	if get_health() <= 0:
 			set_state(DYING)
 	health_bar.set_value(health / max_health)
+	perceivable_units = []
 
 func idle_process(delta):
 	pass
@@ -142,8 +143,8 @@ func get_distance_to_unit(other):
 func get_closes_enemy():
 	var closest_enemy = null
 	var closest_distance = Global.INT_MAX
-	for unit in units_container.get_children():
-		if unit != self && unit.affiliation != self.affiliation:
+	for unit in perceivable_units:
+		if unit != self && unit != null && unit.affiliation != self.affiliation:
 			var distance = get_distance_to_unit(unit)
 			if distance < closest_distance:
 				closest_distance = distance

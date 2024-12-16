@@ -19,6 +19,9 @@ func _process(delta):
 				if unit.global_position.distance_to(other.position) - (unit.radius + other.radius) <= 0:
 					unit.colliding_units.append(other)
 					other.colliding_units.append(unit)
+				if unit.global_position.distance_to(other.position) - (unit.attention_radius + unit.radius + other.radius) <= 0:
+					unit.perceivable_units.append(other)
+					other.perceivable_units.append(unit)
 		
 		
 		for unit in units:

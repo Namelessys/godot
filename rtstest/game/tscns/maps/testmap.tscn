@@ -40,11 +40,15 @@ process_physics_priority = 50
 script = ExtResource("1_w7brr")
 
 [node name="Barbarian" parent="UnitContainer" instance=ExtResource("6_hb1qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19846, 4.76837e-07, 0.951257)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07384, 4.76837e-07, 0.951257)
 affiliation = 2
 
 [node name="Barbarian2" parent="UnitContainer" instance=ExtResource("6_hb1qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30679, 0, 0.798342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00341547, 0, 0.798342)
+affiliation = 1
+
+[node name="Barbarian3" parent="UnitContainer" instance=ExtResource("6_hb1qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00797, 0, 0.864301)
 affiliation = 1
 
 [node name="UnitTesting" type="Node" parent="."]

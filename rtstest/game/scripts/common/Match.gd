@@ -14,6 +14,6 @@ func _process(delta):
 func spawn_unit(player, unit, position):
 	var new_unit = load(unit).instantiate()
 	new_unit.position = position
-	new_unit.affiliation = 1
+	new_unit.affiliation = 2
 	unit_container.add_child(new_unit)
 	
