@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game/scripts/units/Babarian.gd" id="2_1fxa4"]
 [ext_resource type="PackedScene" uid="uid://chy8tm6hvummq" path="res://addons/progress_bar_3d/progress_bar_3d.tscn" id="3_gdyag"]
 
-[sub_resource type="Shader" id="Shader_0414j"]
+[sub_resource type="Shader" id="Shader_2lutn"]
 code = "shader_type spatial;
 
 
@@ -13,7 +13,7 @@ code = "shader_type spatial;
 // the script progress_bar_3d.gd will no longer be able to
 // update the shader in memory to turn these off.  See
 // function progress_bar_3d.gd:_update_shader()
-render_mode unshaded, shadows_disabled, depth_test_disabled;
+render_mode depth_test_disabled;
 
 
 uniform vec4 background_color : source_color = vec4(.0,.0,.0,1.);
@@ -47,17 +47,17 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t2bil"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_14n6l"]
 render_priority = 0
-shader = SubResource("Shader_0414j")
+shader = SubResource("Shader_2lutn")
 shader_parameter/background_color = Color(0, 0, 0, 1)
 shader_parameter/progress_color = Color(3.58574e-06, 0.610609, 0, 1)
 shader_parameter/progress_value = 1.0
 shader_parameter/billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_0k6jy"]
+[sub_resource type="QuadMesh" id="QuadMesh_3j2w3"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_t2bil")
+material = SubResource("ShaderMaterial_14n6l")
 size = Vector2(1, 0.1)
 
 [node name="Barbarian" instance=ExtResource("1_ht2mn")]
@@ -69,7 +69,7 @@ health_bar_colors = [Color(0, 0.572549, 0, 1), Color(0.745098, 0, 0, 1)]
 
 [node name="HealthBar" parent="." index="0" instance=ExtResource("3_gdyag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86963, 0)
-mesh = SubResource("QuadMesh_0k6jy")
+mesh = SubResource("QuadMesh_3j2w3")
 value = 1.0
 min_value = 0.0
 max_value = 1.0
@@ -130,7 +130,7 @@ transform = Transform3D(0.999999, 6.12925e-07, -9.75513e-07, -1.00682e-06, -1.30
 transform = Transform3D(0.999999, 6.12925e-07, -9.75513e-07, -1.00682e-06, -1.309e-06, -1, -6.31556e-07, 0.999999, -1.33856e-06, -1.1837, 1.04926, -0.0156368)
 
 [node name="Barbarian_Hat" parent="Rig/Skeleton3D" index="5"]
-transform = Transform3D(1, -2.20965e-22, 1.69407e-21, 2.20965e-22, 1, 0, -1.69407e-21, 0, 1, 0, 1.21587, -1.39099e-07)
+transform = Transform3D(1, -2.20965e-22, 1.69407e-21, 2.20965e-22, 1, 0, -1.69407e-21, 3.58732e-43, 1, 0, 1.21587, -1.39099e-07)
 
 [node name="Barbarian_Cape" parent="Rig/Skeleton3D" index="6"]
 transform = Transform3D(1, 1.25214e-21, 0, -1.25214e-21, 1, 0, 0, 0, 1, -1.90735e-06, 1.21587, -1.39099e-07)

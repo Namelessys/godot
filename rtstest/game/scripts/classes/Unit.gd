@@ -15,7 +15,10 @@ enum {FIREND, ENEMY}
 @export var damage: float = 1
 @export var warmup: float = 1
 @export var cooldown: float = 1
-@export var health_bar_colors = []
+@export var health_bar_colors = [
+	Color(0, .5, 0, 1),
+	Color(.5, 0, 0, 1)
+]
 
 @onready var max_health = health
 var timer_warmup = 0

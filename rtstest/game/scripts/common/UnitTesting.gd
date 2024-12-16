@@ -10,7 +10,7 @@ func _ready():
 	#Engine.max_fps = -1
 	#DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	
-	for i in range(10):
+	for i in range(0):
 		var unit1 = unit.instantiate()
 		var unit2 = unit.instantiate()
 		unit1.affiliation = 1
