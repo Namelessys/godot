@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2xa5q362vi1e"]
+[gd_scene load_steps=9 format=3 uid="uid://c2xa5q362vi1e"]
 
 [ext_resource type="Script" path="res://game/scripts/units/TestUnit.gd" id="1_om0ev"]
 [ext_resource type="PackedScene" uid="uid://cp0qdsavufsef" path="res://game/tscns/gui/HealthBar.tscn" id="2_qrn33"]
 
-[sub_resource type="Shader" id="Shader_ue80x"]
+[sub_resource type="Shader" id="Shader_4akhq"]
 code = "shader_type spatial;
 
 
@@ -46,17 +46,17 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_phgcr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ha84w"]
 render_priority = 0
-shader = SubResource("Shader_ue80x")
+shader = SubResource("Shader_4akhq")
 shader_parameter/background_color = Color(0, 0, 0, 1)
 shader_parameter/progress_color = Color(0, 1, 0, 1)
 shader_parameter/progress_value = 0.5
 shader_parameter/billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_8hggo"]
+[sub_resource type="QuadMesh" id="QuadMesh_eiu7s"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_phgcr")
+material = SubResource("ShaderMaterial_ha84w")
 size = Vector2(1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_an263"]
@@ -66,12 +66,15 @@ albedo_color = Color(0.789424, 0, 0.15804, 1)
 material = SubResource("StandardMaterial3D_an263")
 size = Vector3(1, 2, 1)
 
-[node name="TestUnit" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ryyqe"]
+
+[node name="TestUnit" type="CharacterBody3D"]
 script = ExtResource("1_om0ev")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_qrn33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.509, 0)
-mesh = SubResource("QuadMesh_8hggo")
+mesh = SubResource("QuadMesh_eiu7s")
+skeleton = NodePath("")
 value = 50.0
 min_value = 0.0
 max_value = 100.0
@@ -82,3 +85,7 @@ progress_color = Color(0, 1, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_sg5mu")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_ryyqe")

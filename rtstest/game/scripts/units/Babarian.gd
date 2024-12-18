@@ -38,3 +38,5 @@ func _process(delta):
 			if !animation.is_playing():
 				die()
 			
+func _physics_process(delta):
+	physics_process(delta)

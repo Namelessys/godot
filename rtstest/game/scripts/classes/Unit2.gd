@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-class_name Unit
+class_name Unit2
 
 enum {IDLE, WALKING, WARMUP, ATTACKING, COOLDOWN, SPAWNING, DYING}
 enum {GROUND, AIR}
