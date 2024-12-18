@@ -74,10 +74,13 @@ func process(delta):
 		IDLE:
 			idle_process(delta)
 		WALKING:
+			look_at_target()
 			move_to_target(delta)
 		WARMUP:
+			look_at_target()
 			warmup_process(delta)
 		ATTACKING:
+			look_at_target()
 			attack_process(delta)
 		COOLDOWN:
 			cooldown_process(delta)
@@ -116,11 +119,11 @@ func move_to_target(delta):
 	var direction = target_position - global_position
 	direction = direction.normalized()
 	
-	if target_position != position:
-		look_at(target_position)
-		pass
-	
 	push_forces += direction * speed
+
+func look_at_target():
+	if current_target.position != position:
+		look_at(current_target.position)
 
 func calc_physics(delta):
 	#var overlapping_areas = collision_area.get_overlapping_areas()

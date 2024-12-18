@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game/scripts/units/Babarian.gd" id="2_1fxa4"]
 [ext_resource type="PackedScene" uid="uid://chy8tm6hvummq" path="res://addons/progress_bar_3d/progress_bar_3d.tscn" id="3_gdyag"]
 
-[sub_resource type="Shader" id="Shader_t4l7p"]
+[sub_resource type="Shader" id="Shader_3g00v"]
 code = "shader_type spatial;
 
 
@@ -47,17 +47,17 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hq1mm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_megcl"]
 render_priority = 0
-shader = SubResource("Shader_t4l7p")
+shader = SubResource("Shader_3g00v")
 shader_parameter/background_color = Color(0, 0, 0, 1)
 shader_parameter/progress_color = Color(3.58574e-06, 0.610609, 0, 1)
 shader_parameter/progress_value = 1.0
 shader_parameter/billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_10wwq"]
+[sub_resource type="QuadMesh" id="QuadMesh_i601j"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_hq1mm")
+material = SubResource("ShaderMaterial_megcl")
 size = Vector2(1, 0.1)
 
 [node name="Barbarian" instance=ExtResource("1_ht2mn")]
@@ -69,7 +69,7 @@ health_bar_colors = [Color(0, 0.572549, 0, 1), Color(0.745098, 0, 0, 1)]
 
 [node name="HealthBar" parent="." index="0" instance=ExtResource("3_gdyag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86963, 0)
-mesh = SubResource("QuadMesh_10wwq")
+mesh = SubResource("QuadMesh_i601j")
 value = 1.0
 min_value = 0.0
 max_value = 1.0

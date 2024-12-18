@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game/scripts/units/TestUnit.gd" id="1_om0ev"]
 [ext_resource type="PackedScene" uid="uid://cp0qdsavufsef" path="res://game/tscns/gui/HealthBar.tscn" id="2_qrn33"]
 
-[sub_resource type="Shader" id="Shader_bnhc4"]
+[sub_resource type="Shader" id="Shader_ue80x"]
 code = "shader_type spatial;
 
 
@@ -46,17 +46,17 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3ph3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_phgcr"]
 render_priority = 0
-shader = SubResource("Shader_bnhc4")
+shader = SubResource("Shader_ue80x")
 shader_parameter/background_color = Color(0, 0, 0, 1)
 shader_parameter/progress_color = Color(0, 1, 0, 1)
 shader_parameter/progress_value = 0.5
 shader_parameter/billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_b2wcu"]
+[sub_resource type="QuadMesh" id="QuadMesh_8hggo"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_h3ph3")
+material = SubResource("ShaderMaterial_phgcr")
 size = Vector2(1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_an263"]
@@ -71,7 +71,7 @@ script = ExtResource("1_om0ev")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_qrn33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.509, 0)
-mesh = SubResource("QuadMesh_b2wcu")
+mesh = SubResource("QuadMesh_8hggo")
 value = 50.0
 min_value = 0.0
 max_value = 100.0
