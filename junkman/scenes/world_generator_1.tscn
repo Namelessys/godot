@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvk21doeqxxab"]
+
+[ext_resource type="Script" uid="uid://bsmn7p0dt47ps" path="res://scripts/world_gen/world_gen_1.gd" id="1_8yd8b"]
+
+[node name="WorldGenerator1" type="Node3D"]
+script = ExtResource("1_8yd8b")
+
+[node name="Roads" type="Node" parent="."]

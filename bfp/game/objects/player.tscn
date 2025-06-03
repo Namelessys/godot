@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://cdeb77bp72i83"]
 
-[ext_resource type="Script" path="res://game/scripts/player/player.gd" id="1_7f41l"]
+[ext_resource type="Script" uid="uid://cb12lsm6fk7ed" path="res://game/scripts/player/player.gd" id="1_7f41l"]
 [ext_resource type="Texture2D" uid="uid://dwog6e4eo73u6" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/jump/player-jump-2.png" id="2_0rjbx"]
 [ext_resource type="Texture2D" uid="uid://bcr26ogdoghxo" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-1.png" id="3_f5x4e"]
 [ext_resource type="Texture2D" uid="uid://ctxt4gdbpa0v2" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-2.png" id="4_bub2l"]
@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://duui4ao8k46mo" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-5.png" id="12_o0omg"]
 [ext_resource type="Texture2D" uid="uid://claaso4jsfcna" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-6.png" id="13_ytlal"]
 [ext_resource type="Texture2D" uid="uid://dh2ttv7rxy75l" path="res://game/assets/Sunny-land-assets-files/PNG/spritesheets/payer-run.png" id="14_7x14q"]
-[ext_resource type="Script" path="res://game/scripts/common/camera.gd" id="16_suw1g"]
-[ext_resource type="Script" path="res://game/scripts/player/animator.gd" id="17_bg33s"]
+[ext_resource type="Script" uid="uid://b3v442mv6tbyw" path="res://game/scripts/common/camera.gd" id="16_suw1g"]
+[ext_resource type="Script" uid="uid://cj7qrosqhtub0" path="res://game/scripts/player/animator.gd" id="17_bg33s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxtx1"]
 atlas = ExtResource("14_7x14q")
@@ -146,7 +146,7 @@ shape = SubResource("CapsuleShape2D_j3eum")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4.46, 4.46)
-position_smoothing_speed = -5.0
+position_smoothing_speed = 0.0
 script = ExtResource("16_suw1g")
 
 [node name="GroundCast" type="RayCast2D" parent="."]

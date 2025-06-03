@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp0qdsavufsef"]
 
-[ext_resource type="Shader" path="res://addons/progress_bar_3d/progress_bar_3d.gdshader" id="1_06s76"]
-[ext_resource type="Script" path="res://addons/progress_bar_3d/progress_bar_3d.gd" id="2_obja5"]
+[ext_resource type="Shader" uid="uid://b2rucpxmm2mw7" path="res://addons/progress_bar_3d/progress_bar_3d.gdshader" id="1_06s76"]
+[ext_resource type="Script" uid="uid://bj3g8yi60a06r" path="res://addons/progress_bar_3d/progress_bar_3d.gd" id="2_obja5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gmlc2"]
 render_priority = 0

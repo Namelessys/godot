@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2xa5q362vi1e"]
+[gd_scene load_steps=10 format=3 uid="uid://c2xa5q362vi1e"]
 
-[ext_resource type="Script" path="res://game/scripts/units/TestUnit.gd" id="1_om0ev"]
+[ext_resource type="Script" uid="uid://cg0fvng1aax71" path="res://game/scripts/units/TestUnit.gd" id="1_om0ev"]
 [ext_resource type="PackedScene" uid="uid://cp0qdsavufsef" path="res://game/tscns/gui/HealthBar.tscn" id="2_qrn33"]
 
-[sub_resource type="Shader" id="Shader_4akhq"]
+[sub_resource type="Shader" id="Shader_n1b8r"]
 code = "shader_type spatial;
 
 
@@ -46,17 +46,17 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ha84w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6bhu"]
 render_priority = 0
-shader = SubResource("Shader_4akhq")
+shader = SubResource("Shader_n1b8r")
 shader_parameter/background_color = Color(0, 0, 0, 1)
 shader_parameter/progress_color = Color(0, 1, 0, 1)
 shader_parameter/progress_value = 0.5
 shader_parameter/billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_eiu7s"]
+[sub_resource type="QuadMesh" id="QuadMesh_bmp2m"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_ha84w")
+material = SubResource("ShaderMaterial_a6bhu")
 size = Vector2(1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_an263"]
@@ -68,12 +68,14 @@ size = Vector3(1, 2, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ryyqe"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ihudp"]
+
 [node name="TestUnit" type="CharacterBody3D"]
 script = ExtResource("1_om0ev")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_qrn33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.509, 0)
-mesh = SubResource("QuadMesh_eiu7s")
+mesh = SubResource("QuadMesh_bmp2m")
 skeleton = NodePath("")
 value = 50.0
 min_value = 0.0
@@ -86,6 +88,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_sg5mu")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_ryyqe")
+
+[node name="AttentionArea" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="AttentionRadius" type="CollisionShape3D" parent="AttentionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_ihudp")

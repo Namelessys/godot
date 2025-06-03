@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bt3nsqsl2phw4"]
 
-[ext_resource type="Script" path="res://game/scripts/weapons/weapon_connector.gd" id="1_b5mp0"]
+[ext_resource type="Script" uid="uid://beo612ox01mgj" path="res://game/scripts/weapons/weapon_connector.gd" id="1_b5mp0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yeubj"]
 size = Vector2(2, 4)

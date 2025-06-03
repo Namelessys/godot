@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjnqms5y7was4"]
 
-[ext_resource type="Script" path="res://game/scripts/weapons/weapon_base.gd" id="1_1u33i"]
+[ext_resource type="Script" uid="uid://d1vorjy4otibn" path="res://game/scripts/weapons/weapon_base.gd" id="1_1u33i"]
 [ext_resource type="Texture2D" uid="uid://du8wsgedehhy8" path="res://game/assets/BFP/weapon/base.png" id="1_jnfsf"]
 [ext_resource type="PackedScene" uid="uid://bc6ubvbnihhw1" path="res://game/objects/common/weapon/weapon_connector_output.tscn" id="2_hkimt"]
 

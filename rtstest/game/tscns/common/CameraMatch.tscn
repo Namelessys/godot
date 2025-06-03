@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dp0j228r805r8"]
 
-[ext_resource type="Script" path="res://game/scripts/common/CameraMatch.gd" id="1_a7si8"]
+[ext_resource type="Script" uid="uid://y26gu7ypwvq2" path="res://game/scripts/common/CameraMatch.gd" id="1_a7si8"]
 [ext_resource type="PackedScene" uid="uid://j13a50g25qxx" path="res://game/tscns/gui/GUIMatch.tscn" id="1_erd40"]
 
 [node name="CameraMatch" type="Node3D"]

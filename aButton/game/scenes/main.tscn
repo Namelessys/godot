@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7wgy5qv4mv6q"]
 
-[ext_resource type="Script" path="res://game/scripts/main.gd" id="1_pboe2"]
-[ext_resource type="Script" path="res://gdScriptRef/gdScriptRef.gd" id="2_fvmy2"]
-[ext_resource type="Script" path="res://game/scripts/textBox.gd" id="3_5pf5g"]
-[ext_resource type="Script" path="res://game/scripts/button.gd" id="4_qnve3"]
+[ext_resource type="Script" uid="uid://bxqly2iul11mv" path="res://game/scripts/main.gd" id="1_pboe2"]
+[ext_resource type="Script" uid="uid://rgv5ng3q1pv8" path="res://gdScriptRef/gdScriptRef.gd" id="2_fvmy2"]
+[ext_resource type="Script" uid="uid://drmrjvg3uohl1" path="res://game/scripts/textBox.gd" id="3_5pf5g"]
+[ext_resource type="Script" uid="uid://cnwmmlia20kir" path="res://game/scripts/button.gd" id="4_qnve3"]
 
 [node name="main" type="Node2D"]
 position = Vector2(0, 2)

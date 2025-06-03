@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chy8tm6hvummq"]
 
-[ext_resource type="Shader" path="res://addons/progress_bar_3d/progress_bar_3d.gdshader" id="1_yt6j7"]
-[ext_resource type="Script" path="res://addons/progress_bar_3d/progress_bar_3d.gd" id="2_etobx"]
+[ext_resource type="Shader" uid="uid://b2rucpxmm2mw7" path="res://addons/progress_bar_3d/progress_bar_3d.gdshader" id="1_yt6j7"]
+[ext_resource type="Script" uid="uid://bj3g8yi60a06r" path="res://addons/progress_bar_3d/progress_bar_3d.gd" id="2_etobx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gmlc2"]
 render_priority = 0
@@ -9,6 +9,7 @@ shader = ExtResource("1_yt6j7")
 shader_parameter/background_color = Color(0, 0, 0, 1)
 shader_parameter/progress_color = Color(0, 1, 0, 1)
 shader_parameter/progress_value = 0.5
+shader_parameter/billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_mfwwj"]
 material = SubResource("ShaderMaterial_gmlc2")

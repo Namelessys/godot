@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://biim2lxri0akl"]
 
-[ext_resource type="Script" path="res://example/field/field.gd" id="1_7p7dw"]
+[sub_resource type="Resource" id="Resource_fw5wb"]
+metadata/__load_path__ = "res://example/field/field.gd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crh71"]
 size = Vector2(210, 148)
@@ -9,7 +10,7 @@ size = Vector2(210, 148)
 anchors_preset = -1
 anchor_right = 0.364583
 anchor_bottom = 0.228395
-script = ExtResource("1_7p7dw")
+script = SubResource("Resource_fw5wb")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]

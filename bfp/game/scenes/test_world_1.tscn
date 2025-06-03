@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://qbu3hqkpkauw"]
 
-[ext_resource type="Script" path="res://game/scripts/scenes/world.gd" id="1_6gjp5"]
+[ext_resource type="Script" uid="uid://keka53tphp6y" path="res://game/scripts/scenes/world.gd" id="1_6gjp5"]
 [ext_resource type="PackedScene" uid="uid://cdeb77bp72i83" path="res://game/objects/player.tscn" id="2_qyx8i"]
 [ext_resource type="Texture2D" uid="uid://b1hjwfykioam3" path="res://game/assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="3_x6lkp"]
 [ext_resource type="PackedScene" uid="uid://cbpx8lfr3dieh" path="res://game/objects/test/ball.tscn" id="4_qsku7"]
@@ -9,25 +9,15 @@
 texture = ExtResource("3_x6lkp")
 5:0/size_in_atlas = Vector2i(2, 2)
 5:0/0 = 0
-5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:0/0/physics_layer_0/angular_velocity = 0.0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 12, 14, -4, 16, -4, 16, 16, -16, 16)
 7:0/size_in_atlas = Vector2i(2, 2)
 7:0/0 = 0
-7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:0/0/physics_layer_0/angular_velocity = 0.0
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 12, -16, -4, -16, 16, 16, 16)
 0:0/size_in_atlas = Vector2i(5, 2)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-34, -4, 34, -4, 40, 0, 40, 16, -40, 16, -40, 0)
 1:18/0 = 0
-1:18/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:18/0/physics_layer_0/angular_velocity = 0.0
 2:18/0 = 0
-2:18/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:18/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_yudeb"]
 physics_layer_0/collision_layer = 1

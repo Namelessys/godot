@@ -1,0 +1,133 @@
+[gd_scene load_steps=13 format=3 uid="uid://x15d3axd6scn"]
+
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_dupwh"]
+[ext_resource type="Script" uid="uid://bcol3iwbvwsbc" path="res://scripts/add_collisions.gd" id="2_670ed"]
+[ext_resource type="PackedScene" uid="uid://dfan4yoyk1koy" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight.gltf" id="3_286k3"]
+[ext_resource type="PackedScene" uid="uid://2qdxhrhd7k3l" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight_crossing.gltf" id="4_5mx21"]
+[ext_resource type="PackedScene" uid="uid://cqaj603wkrcto" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_junction.gltf" id="5_ssdky"]
+[ext_resource type="PackedScene" uid="uid://ba6nmjd0nxdf2" path="res://test/test_road_straight.tscn" id="6_l0ecf"]
+[ext_resource type="PackedScene" uid="uid://bp6ht716x557x" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/building_A.gltf" id="7_1eyoi"]
+[ext_resource type="PackedScene" uid="uid://d3aohgoot5n2h" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/base.fbx" id="8_lb1r2"]
+[ext_resource type="PackedScene" uid="uid://0cwgrdidepfn" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_B_withoutBase.fbx" id="9_krxa6"]
+[ext_resource type="PackedScene" uid="uid://cl2pqo4xm6ne0" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/road_straight.fbx" id="10_mjsm2"]
+[ext_resource type="PackedScene" uid="uid://ud1m2h2dea8p" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/building_C_withoutBase.fbx" id="11_prynk"]
+[ext_resource type="PackedScene" uid="uid://cl3urghriqh8w" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/fbx/bush.fbx" id="12_fsji2"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Character" parent="." instance=ExtResource("1_dupwh")]
+transform = Transform3D(-0.269991, 0, -0.00220067, 0, 0.27, 0, 0.00220067, 0, -0.269991, 0, 0, -3)
+jump_velocity = 1.8
+can_fly = true
+
+[node name="Map" type="Node" parent="."]
+script = ExtResource("2_670ed")
+
+[node name="road_straight2" parent="Map" instance=ExtResource("3_286k3")]
+
+[node name="road_straight_crossing2" parent="Map" instance=ExtResource("4_5mx21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="road_junction2" parent="Map" instance=ExtResource("5_ssdky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="road_straight_crossing3" parent="Map" instance=ExtResource("4_5mx21")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 4)
+
+[node name="road_straight3" parent="Map" instance=ExtResource("3_286k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="road_straight_crossing4" parent="Map" instance=ExtResource("4_5mx21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="road_straight_crossing5" parent="Map" instance=ExtResource("4_5mx21")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2, 0, 4)
+
+[node name="road_straight4" parent="Map" instance=ExtResource("3_286k3")]
+transform = Transform3D(0.999993, 6.0354e-05, 0.00365834, -4.76961e-05, 0.999994, -0.00344668, -0.00365853, 0.00344648, 0.999987, 0, 0, 10)
+
+[node name="road_straight5" parent="Map" instance=ExtResource("6_l0ecf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="building_A2" parent="Map" instance=ExtResource("7_1eyoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="base" parent="Map" instance=ExtResource("8_lb1r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="base2" parent="Map" instance=ExtResource("8_lb1r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+
+[node name="base3" parent="Map" instance=ExtResource("8_lb1r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2)
+
+[node name="building_B_withoutBase" parent="Map" instance=ExtResource("9_krxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="building_B_withoutBase2" parent="Map" instance=ExtResource("9_krxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, 0, 2)
+
+[node name="road_straight" parent="Map" instance=ExtResource("10_mjsm2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, 4)
+
+[node name="road_straight6" parent="Map" instance=ExtResource("10_mjsm2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, 4)
+
+[node name="road_straight7" parent="Map" instance=ExtResource("10_mjsm2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 4)
+
+[node name="building_C_withoutBase" parent="Map" instance=ExtResource("11_prynk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 2)
+
+[node name="garden1" type="Node" parent="Map"]
+
+[node name="bush" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7, 0, 2.4)
+
+[node name="bush2" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9, 0, 2.4)
+
+[node name="bush4" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 2.4)
+
+[node name="bush5" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7, 0, 2.4)
+
+[node name="bush6" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9, 0, 2.4)
+
+[node name="bush7" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9, 0, 2.2)
+
+[node name="bush8" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9, 0, 2)
+
+[node name="bush9" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9, 0, 1.8)
+
+[node name="bush10" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9, 0, 1.6)
+
+[node name="bush11" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9, 0, 1.4)
+
+[node name="bush12" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9, 0, 1.2)
+
+[node name="bush13" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.7, 0, 1.2)
+
+[node name="bush14" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.5, 0, 1.2)
+
+[node name="bush15" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.3, 0, 1.2)
+
+[node name="bush16" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.1, 0, 1.2)
+
+[node name="bush17" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.9, 0, 1.2)
+
+[node name="bush18" parent="Map/garden1" instance=ExtResource("12_fsji2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.7, 0, 1.2)

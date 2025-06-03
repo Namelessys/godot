@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b84okkg361uk7"]
 
-[ext_resource type="Script" path="res://game/scripts/weapons/weapon_empty.gd" id="1_fcl4s"]
+[ext_resource type="Script" uid="uid://bcpwaqcny2trg" path="res://game/scripts/weapons/weapon_empty.gd" id="1_fcl4s"]
 [ext_resource type="Texture2D" uid="uid://cj5lcgcib561g" path="res://game/assets/BFP/weapon/pipes/straight.png" id="2_bntdv"]
 [ext_resource type="PackedScene" uid="uid://bt3nsqsl2phw4" path="res://game/objects/common/weapon/weapon_connector_input.tscn" id="3_asx6j"]
 [ext_resource type="PackedScene" uid="uid://bc6ubvbnihhw1" path="res://game/objects/common/weapon/weapon_connector_output.tscn" id="4_pusnx"]

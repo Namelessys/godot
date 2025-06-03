@@ -1,7 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://efwjm4hfeqf2"]
 
-[ext_resource type="PackedScene" uid="uid://c6br8h3si2ypg" path="res://sphere.tscn" id="1_8awbr"]
-[ext_resource type="Script" path="res://level.gd" id="1_p4gvl"]
+[ext_resource type="PackedScene" uid="uid://c6br8h3si2ypg" path="res://misc/mp/sphere.tscn" id="1_8awbr"]
+
+[sub_resource type="Resource" id="Resource_0ggpg"]
+metadata/__load_path__ = "res://level.gd"
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_s66iy"]
 
@@ -12,7 +14,7 @@ size = Vector2(20, 20)
 albedo_color = Color(0.164706, 0.478431, 1, 1)
 
 [node name="World" type="Node3D"]
-script = ExtResource("1_p4gvl")
+script = SubResource("Resource_0ggpg")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35697, 3.4425)

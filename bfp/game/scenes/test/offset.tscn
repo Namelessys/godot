@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu0t51xfshxwi"]
 
-[ext_resource type="Script" path="res://game/scripts/test/offset.gd" id="1_ays0g"]
+[ext_resource type="Script" uid="uid://c1ghn3svjfdok" path="res://game/scripts/test/offset.gd" id="1_ays0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dtmpy"]
 

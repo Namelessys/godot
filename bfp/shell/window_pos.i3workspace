@@ -1,24 +1,23 @@
 // vim:ts=4:sw=4:et
 {
-    "border": "normal",
-    "current_border_width": 2,
-    "floating": "auto_off",
-    "geometry": {
-       "height": 648,
-       "width": 1152,
-       "x": 2064,
-       "y": 276
-    },
-    "marks": [],
-    "name": "BFP (DEBUG)",
-    "percent": 1,
-    "swallows": [
-       {
-       "class": "^BFP$"
-       // "instance": "^Godot_Engine$",
-       // "title": "^BFP\\ \\(DEBUG\\)$"
-       }
-    ],
-    "type": "con"
+	"border": "normal",
+	"current_border_width": 2,
+	"floating": "auto_off",
+	"geometry": {
+	   "height": 648,
+	   "width": 1152,
+	   "x": 2064,
+	   "y": 276
+	},
+	"marks": [],
+	"name": "BFP (DEBUG)",
+	"percent": 1,
+	"swallows": [
+	   {
+	   "class": "^BFP$"
+	   // "instance": "^Godot_Engine$",
+	   // "title": "^BFP\\ \\(DEBUG\\)$"
+	   }
+	],
+	"type": "con"
 }
-

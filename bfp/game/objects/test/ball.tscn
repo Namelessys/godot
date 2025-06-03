@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbpx8lfr3dieh"]
 
-[ext_resource type="Script" path="res://game/scripts/test/ball.gd" id="1_bwdvy"]
+[ext_resource type="Script" uid="uid://dgwb5a1x0xwxl" path="res://game/scripts/test/ball.gd" id="1_bwdvy"]
 [ext_resource type="Texture2D" uid="uid://cldbk2ot52xi7" path="res://game/assets/BFP/weapon/grey.png" id="1_s6emx"]
-[ext_resource type="Script" path="res://game/scripts/test/set_sprite_scale.gd" id="3_0om48"]
+[ext_resource type="Script" uid="uid://bcb7pqek6htn3" path="res://game/scripts/test/set_sprite_scale.gd" id="3_0om48"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_umegl"]
 
@@ -55,8 +55,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_86wrb"]
 _data = {
-"Bounce": SubResource("Animation_otsli"),
-"RESET": SubResource("Animation_u8jss")
+&"Bounce": SubResource("Animation_otsli"),
+&"RESET": SubResource("Animation_u8jss")
 }
 
 [node name="Ball" type="Node2D"]

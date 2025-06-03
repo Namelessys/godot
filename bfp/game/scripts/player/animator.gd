@@ -31,5 +31,3 @@ func _process(delta):
 		animation_sprite.scale.x = move_toward(animation_sprite.scale.x, -1, 20 * delta)
 	elif direction > 0:
 		animation_sprite.scale.x = move_toward(animation_sprite.scale.x, 1, 20 * delta)
-
-

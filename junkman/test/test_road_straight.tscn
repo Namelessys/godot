@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba6nmjd0nxdf2"]
+
+[ext_resource type="PackedScene" uid="uid://dfan4yoyk1koy" path="res://assetPacks/KayKit_City_Builder_Bits_1.0_FREE/Assets/gltf/road_straight.gltf" id="1_w2cgc"]
+
+[sub_resource type="GDScript" id="GDScript_gchj0"]
+script/source = "extends MeshInstance3D
+
+@export var use_convex: bool = true  # Use convex shape if true, trimesh otherwise
+
+func _ready():
+	if not mesh:
+		print(\"No mesh found!\")
+		return
+	
+	# Create a StaticBody3D to hold the collision
+	var body = StaticBody3D.new()
+	add_child(body)
+	body.owner = get_tree().current_scene  # Ensure it's saved in the scene
+	
+	# Create a CollisionShape3D
+	var collision_shape = CollisionShape3D.new()
+	body.add_child(collision_shape)
+	collision_shape.owner = get_tree().current_scene  # Ensure it's saved in the scene
+	
+	# Generate the collision shape from the mesh
+	if use_convex:
+		collision_shape.shape = mesh.create_convex_shape()
+	else:
+		collision_shape.shape = mesh.create_trimesh_shape()
+	
+	print(\"Collision shape added:\", collision_shape.shape)
+ 
+"
+
+[node name="road_straight2" instance=ExtResource("1_w2cgc")]
+
+[node name="road_straight" parent="." index="0"]
+script = SubResource("GDScript_gchj0")

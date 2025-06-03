@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://ctddn0fkpe757"]
 
-[ext_resource type="Script" path="res://game/scripts/player/player.gd" id="1_dgpjq"]
+[ext_resource type="Script" uid="uid://cb12lsm6fk7ed" path="res://game/scripts/player/player.gd" id="1_dgpjq"]
 [ext_resource type="Texture2D" uid="uid://dwog6e4eo73u6" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/jump/player-jump-2.png" id="2_q64nj"]
 [ext_resource type="Texture2D" uid="uid://bcr26ogdoghxo" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-1.png" id="3_m4fb7"]
 [ext_resource type="Texture2D" uid="uid://ctxt4gdbpa0v2" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-2.png" id="4_rjarb"]
@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://duui4ao8k46mo" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-5.png" id="12_0fqv6"]
 [ext_resource type="Texture2D" uid="uid://claaso4jsfcna" path="res://game/assets/Sunny-land-assets-files/PNG/sprites/player/run/player-run-6.png" id="13_ffv1x"]
 [ext_resource type="Texture2D" uid="uid://dh2ttv7rxy75l" path="res://game/assets/Sunny-land-assets-files/PNG/spritesheets/payer-run.png" id="14_5jxhr"]
-[ext_resource type="Script" path="res://test.gd" id="15_g3511"]
-[ext_resource type="Script" path="res://game/scripts/common/camera.gd" id="16_qjgx1"]
+[ext_resource type="Script" uid="uid://b52u41l2flyry" path="res://test.gd" id="15_g3511"]
+[ext_resource type="Script" uid="uid://b3v442mv6tbyw" path="res://game/scripts/common/camera.gd" id="16_qjgx1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0gf7f"]
 friction = 0.05
